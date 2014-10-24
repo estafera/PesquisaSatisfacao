@@ -382,7 +382,8 @@ public class Questionario extends javax.swing.JFrame {
         painelPrincipal.add(jltitulo5, "card6");
 
         botaoAvancar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        botaoAvancar.setText("Avançar >>");
+        botaoAvancar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/next_1.png"))); // NOI18N
+        botaoAvancar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/next2_1.png"))); // NOI18N
         botaoAvancar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoAvancarActionPerformed(evt);
@@ -390,7 +391,8 @@ public class Questionario extends javax.swing.JFrame {
         });
 
         botaoVoltar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        botaoVoltar.setText("<< Voltar");
+        botaoVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/previous_1.png"))); // NOI18N
+        botaoVoltar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/previous2_1.png"))); // NOI18N
         botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoVoltarActionPerformed(evt);
