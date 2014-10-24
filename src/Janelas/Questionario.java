@@ -44,10 +44,25 @@ public class Questionario extends javax.swing.JFrame {
         rbRegular1 = new javax.swing.JRadioButton();
         rbBom1 = new javax.swing.JRadioButton();
         painel3 = new javax.swing.JPanel();
+        jltitulo3 = new javax.swing.JLabel();
+        jlPergunta3 = new javax.swing.JLabel();
+        rbPessimo2 = new javax.swing.JRadioButton();
+        rbRuim2 = new javax.swing.JRadioButton();
+        rbRegular2 = new javax.swing.JRadioButton();
+        rbBom2 = new javax.swing.JRadioButton();
+        painel4 = new javax.swing.JPanel();
+        jltitulo4 = new javax.swing.JLabel();
+        jlPergunta5 = new javax.swing.JLabel();
+        rbPessimo4 = new javax.swing.JRadioButton();
+        rbRuim4 = new javax.swing.JRadioButton();
+        rbRegular4 = new javax.swing.JRadioButton();
+        rbBom4 = new javax.swing.JRadioButton();
+        painel5 = new javax.swing.JPanel();
         jltitulo2 = new javax.swing.JLabel();
         jlPergunta2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jltitulo5 = new javax.swing.JLabel();
         botaoAvancar = new javax.swing.JButton();
         botaoVoltar = new javax.swing.JButton();
 
@@ -59,7 +74,7 @@ public class Questionario extends javax.swing.JFrame {
 
         jltitulo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jltitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jltitulo.setText("Questionário (1/2)");
+        jltitulo.setText("Questionário (1/4)");
 
         jlPergunta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jlPergunta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -127,55 +142,35 @@ public class Questionario extends javax.swing.JFrame {
 
         jltitulo1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jltitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jltitulo1.setText("Questionário (2/2)");
+        jltitulo1.setText("Questionário (2/4)");
 
         jlPergunta1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jlPergunta1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlPergunta1.setText("Num âmbito geral, como você classificaria o nosso serviço?");
+        jlPergunta1.setText("Como você classificaria o prazo de atendimento?");
 
         grupoPergunta2.add(rbPessimo1);
         rbPessimo1.setText("Péssimo");
         rbPessimo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessimo_naos.png"))); // NOI18N
         rbPessimo1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessimo_rollover.png"))); // NOI18N
         rbPessimo1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessimo_selec.png"))); // NOI18N
-        rbPessimo1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbPessimo1ActionPerformed(evt);
-            }
-        });
 
         grupoPergunta2.add(rbRuim1);
         rbRuim1.setText("Ruim");
         rbRuim1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ruim_naos.png"))); // NOI18N
         rbRuim1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ruim_rollover.png"))); // NOI18N
         rbRuim1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ruim_selec.png"))); // NOI18N
-        rbRuim1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbRuim1ActionPerformed(evt);
-            }
-        });
 
         grupoPergunta2.add(rbRegular1);
         rbRegular1.setText("Regular");
         rbRegular1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/regular_naos.png"))); // NOI18N
         rbRegular1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/regular_rollover.png"))); // NOI18N
         rbRegular1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/regular_selec.png"))); // NOI18N
-        rbRegular1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbRegular1ActionPerformed(evt);
-            }
-        });
 
         grupoPergunta2.add(rbBom1);
         rbBom1.setText("Bom");
         rbBom1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bom_naos.png"))); // NOI18N
         rbBom1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bom_rollover.png"))); // NOI18N
         rbBom1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bom_selec.png"))); // NOI18N
-        rbBom1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbBom1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout painel2Layout = new javax.swing.GroupLayout(painel2);
         painel2.setLayout(painel2Layout);
@@ -210,6 +205,139 @@ public class Questionario extends javax.swing.JFrame {
 
         painelPrincipal.add(painel2, "pergunta2");
 
+        jltitulo3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jltitulo3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jltitulo3.setText("Questionário (3/4)");
+
+        jlPergunta3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jlPergunta3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlPergunta3.setText("Classifique o conforto da viagem:");
+
+        grupoPergunta2.add(rbPessimo2);
+        rbPessimo2.setText("Péssimo");
+        rbPessimo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessimo_naos.png"))); // NOI18N
+        rbPessimo2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessimo_rollover.png"))); // NOI18N
+        rbPessimo2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessimo_selec.png"))); // NOI18N
+
+        grupoPergunta2.add(rbRuim2);
+        rbRuim2.setText("Ruim");
+        rbRuim2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ruim_naos.png"))); // NOI18N
+        rbRuim2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ruim_rollover.png"))); // NOI18N
+        rbRuim2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ruim_selec.png"))); // NOI18N
+
+        grupoPergunta2.add(rbRegular2);
+        rbRegular2.setText("Regular");
+        rbRegular2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/regular_naos.png"))); // NOI18N
+        rbRegular2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/regular_rollover.png"))); // NOI18N
+        rbRegular2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/regular_selec.png"))); // NOI18N
+
+        grupoPergunta2.add(rbBom2);
+        rbBom2.setText("Bom");
+        rbBom2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bom_naos.png"))); // NOI18N
+        rbBom2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bom_rollover.png"))); // NOI18N
+        rbBom2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bom_selec.png"))); // NOI18N
+
+        javax.swing.GroupLayout painel3Layout = new javax.swing.GroupLayout(painel3);
+        painel3.setLayout(painel3Layout);
+        painel3Layout.setHorizontalGroup(
+            painel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jltitulo3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jlPergunta3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(painel3Layout.createSequentialGroup()
+                .addComponent(rbPessimo2)
+                .addGap(18, 18, 18)
+                .addComponent(rbRuim2)
+                .addGap(18, 18, 18)
+                .addComponent(rbRegular2)
+                .addGap(18, 18, 18)
+                .addComponent(rbBom2)
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
+        painel3Layout.setVerticalGroup(
+            painel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painel3Layout.createSequentialGroup()
+                .addComponent(jltitulo3)
+                .addGap(18, 18, 18)
+                .addComponent(jlPergunta3)
+                .addGap(18, 18, 18)
+                .addGroup(painel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbRuim2)
+                    .addComponent(rbPessimo2)
+                    .addComponent(rbRegular2)
+                    .addComponent(rbBom2))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        painelPrincipal.add(painel3, "pergunta3");
+
+        jltitulo4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jltitulo4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jltitulo4.setText("Questionário (4/4)");
+
+        jlPergunta5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jlPergunta5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlPergunta5.setText("Classifique o atendimento do taxista:");
+
+        grupoPergunta2.add(rbPessimo4);
+        rbPessimo4.setText("Péssimo");
+        rbPessimo4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessimo_naos.png"))); // NOI18N
+        rbPessimo4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessimo_rollover.png"))); // NOI18N
+        rbPessimo4.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessimo_selec.png"))); // NOI18N
+
+        grupoPergunta2.add(rbRuim4);
+        rbRuim4.setText("Ruim");
+        rbRuim4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ruim_naos.png"))); // NOI18N
+        rbRuim4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ruim_rollover.png"))); // NOI18N
+        rbRuim4.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ruim_selec.png"))); // NOI18N
+
+        grupoPergunta2.add(rbRegular4);
+        rbRegular4.setText("Regular");
+        rbRegular4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/regular_naos.png"))); // NOI18N
+        rbRegular4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/regular_rollover.png"))); // NOI18N
+        rbRegular4.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/regular_selec.png"))); // NOI18N
+
+        grupoPergunta2.add(rbBom4);
+        rbBom4.setText("Bom");
+        rbBom4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bom_naos.png"))); // NOI18N
+        rbBom4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bom_rollover.png"))); // NOI18N
+        rbBom4.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bom_selec.png"))); // NOI18N
+
+        javax.swing.GroupLayout painel4Layout = new javax.swing.GroupLayout(painel4);
+        painel4.setLayout(painel4Layout);
+        painel4Layout.setHorizontalGroup(
+            painel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jlPergunta5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(painel4Layout.createSequentialGroup()
+                .addGroup(painel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painel4Layout.createSequentialGroup()
+                        .addComponent(rbPessimo4)
+                        .addGap(18, 18, 18)
+                        .addComponent(rbRuim4)
+                        .addGap(18, 18, 18)
+                        .addComponent(rbRegular4)
+                        .addGap(18, 18, 18)
+                        .addComponent(rbBom4)
+                        .addGap(0, 3, Short.MAX_VALUE))
+                    .addComponent(jltitulo4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        painel4Layout.setVerticalGroup(
+            painel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painel4Layout.createSequentialGroup()
+                .addComponent(jltitulo4)
+                .addGap(18, 18, 18)
+                .addComponent(jlPergunta5)
+                .addGap(18, 18, 18)
+                .addGroup(painel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbRuim4)
+                    .addComponent(rbPessimo4)
+                    .addComponent(rbRegular4)
+                    .addComponent(rbBom4))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        painelPrincipal.add(painel4, "pergunta4");
+
         jltitulo2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jltitulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jltitulo2.setText("Sugestão");
@@ -223,21 +351,21 @@ public class Questionario extends javax.swing.JFrame {
         jTextArea1.setRows(4);
         jScrollPane1.setViewportView(jTextArea1);
 
-        javax.swing.GroupLayout painel3Layout = new javax.swing.GroupLayout(painel3);
-        painel3.setLayout(painel3Layout);
-        painel3Layout.setHorizontalGroup(
-            painel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout painel5Layout = new javax.swing.GroupLayout(painel5);
+        painel5.setLayout(painel5Layout);
+        painel5Layout.setHorizontalGroup(
+            painel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jltitulo2, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
-            .addGroup(painel3Layout.createSequentialGroup()
+            .addGroup(painel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(painel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(painel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jlPergunta2, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
                     .addComponent(jScrollPane1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        painel3Layout.setVerticalGroup(
-            painel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painel3Layout.createSequentialGroup()
+        painel5Layout.setVerticalGroup(
+            painel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painel5Layout.createSequentialGroup()
                 .addComponent(jltitulo2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jlPergunta2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -246,7 +374,12 @@ public class Questionario extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        painelPrincipal.add(painel3, "sugestao");
+        painelPrincipal.add(painel5, "sugestao");
+
+        jltitulo5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jltitulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jltitulo5.setText("Questionário (3/4)");
+        painelPrincipal.add(jltitulo5, "card6");
 
         botaoAvancar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         botaoAvancar.setText("Avançar >>");
@@ -296,22 +429,6 @@ public class Questionario extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rbPessimo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPessimo1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbPessimo1ActionPerformed
-
-    private void rbRuim1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbRuim1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbRuim1ActionPerformed
-
-    private void rbRegular1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbRegular1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbRegular1ActionPerformed
-
-    private void rbBom1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbBom1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbBom1ActionPerformed
-
     private void botaoAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAvancarActionPerformed
         // Variavel cardAtual incrementa 1
         cardAtual++;
@@ -320,7 +437,7 @@ public class Questionario extends javax.swing.JFrame {
         botaoVoltar.setEnabled(true);
         
         // Texto do botão avançar recebe um valor diferente caso o cardAtual tenha o valor 3
-        if(cardAtual==3)
+        if(cardAtual==4)
             botaoAvancar.setText("Finalizar pesquisa");
         
         // Caso o usuário finalize a pesquisa, é exibida a mensagem e encerra-se o programa
@@ -329,8 +446,6 @@ public class Questionario extends javax.swing.JFrame {
                     "Pesquisa finalizada", JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);
         }
-        
-        System.out.println(grupoPergunta1.isSelected(rbBom.getModel()));
         
         // Painel principal altera-se para o próximo card (painel)
         CardLayout card = (CardLayout) painelPrincipal.getLayout();
@@ -354,8 +469,7 @@ public class Questionario extends javax.swing.JFrame {
             // Painel principal altera-se para o card (painel) anterior 
             CardLayout card = (CardLayout) painelPrincipal.getLayout();
             card.previous(painelPrincipal); 
-        }
-        
+        }        
         
     }//GEN-LAST:event_botaoVoltarActionPerformed
 
@@ -405,20 +519,35 @@ public class Questionario extends javax.swing.JFrame {
     private javax.swing.JLabel jlPergunta;
     private javax.swing.JLabel jlPergunta1;
     private javax.swing.JLabel jlPergunta2;
+    private javax.swing.JLabel jlPergunta3;
+    private javax.swing.JLabel jlPergunta5;
     private javax.swing.JLabel jltitulo;
     private javax.swing.JLabel jltitulo1;
     private javax.swing.JLabel jltitulo2;
+    private javax.swing.JLabel jltitulo3;
+    private javax.swing.JLabel jltitulo4;
+    private javax.swing.JLabel jltitulo5;
     private javax.swing.JPanel painel1;
     private javax.swing.JPanel painel2;
     private javax.swing.JPanel painel3;
+    private javax.swing.JPanel painel4;
+    private javax.swing.JPanel painel5;
     private javax.swing.JPanel painelPrincipal;
     private javax.swing.JRadioButton rbBom;
     private javax.swing.JRadioButton rbBom1;
+    private javax.swing.JRadioButton rbBom2;
+    private javax.swing.JRadioButton rbBom4;
     private javax.swing.JRadioButton rbPessimo;
     private javax.swing.JRadioButton rbPessimo1;
+    private javax.swing.JRadioButton rbPessimo2;
+    private javax.swing.JRadioButton rbPessimo4;
     private javax.swing.JRadioButton rbRegular;
     private javax.swing.JRadioButton rbRegular1;
+    private javax.swing.JRadioButton rbRegular2;
+    private javax.swing.JRadioButton rbRegular4;
     private javax.swing.JRadioButton rbRuim;
     private javax.swing.JRadioButton rbRuim1;
+    private javax.swing.JRadioButton rbRuim2;
+    private javax.swing.JRadioButton rbRuim4;
     // End of variables declaration//GEN-END:variables
 }
