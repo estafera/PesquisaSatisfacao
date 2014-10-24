@@ -149,9 +149,9 @@
                   <Image iconType="3" name="/Imagens/pessimo_selec.png"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbPessimoActionPerformed"/>
-              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Questionario_rbPessimo"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbRuim">
               <Properties>
@@ -169,9 +169,9 @@
                   <Image iconType="3" name="/Imagens/ruim_selec.png"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbRuimActionPerformed"/>
-              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Questionario_rbRuim"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbRegular">
               <Properties>
@@ -189,9 +189,9 @@
                   <Image iconType="3" name="/Imagens/regular_selec.png"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbRegularActionPerformed"/>
-              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Questionario_rbRegular"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbBom">
               <Properties>
@@ -209,9 +209,9 @@
                   <Image iconType="3" name="/Imagens/bom_selec.png"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbBomActionPerformed"/>
-              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Questionario_rbBom"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

@@ -18,6 +18,7 @@ public class Questionario extends javax.swing.JFrame {
             
     public Questionario() {
         initComponents();
+        botaoVoltar.setEnabled(false);
     }
 
     
@@ -69,44 +70,24 @@ public class Questionario extends javax.swing.JFrame {
         rbPessimo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessimo_naos.png"))); // NOI18N
         rbPessimo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessimo_rollover.png"))); // NOI18N
         rbPessimo.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessimo_selec.png"))); // NOI18N
-        rbPessimo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbPessimoActionPerformed(evt);
-            }
-        });
 
         grupoPergunta1.add(rbRuim);
         rbRuim.setText("Ruim");
         rbRuim.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ruim_naos.png"))); // NOI18N
         rbRuim.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ruim_rollover.png"))); // NOI18N
         rbRuim.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ruim_selec.png"))); // NOI18N
-        rbRuim.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbRuimActionPerformed(evt);
-            }
-        });
 
         grupoPergunta1.add(rbRegular);
         rbRegular.setText("Regular");
         rbRegular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/regular_naos.png"))); // NOI18N
         rbRegular.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/regular_rollover.png"))); // NOI18N
         rbRegular.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/regular_selec.png"))); // NOI18N
-        rbRegular.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbRegularActionPerformed(evt);
-            }
-        });
 
         grupoPergunta1.add(rbBom);
         rbBom.setText("Bom");
         rbBom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bom_naos.png"))); // NOI18N
         rbBom.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bom_rollover.png"))); // NOI18N
         rbBom.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bom_selec.png"))); // NOI18N
-        rbBom.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbBomActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout painel1Layout = new javax.swing.GroupLayout(painel1);
         painel1.setLayout(painel1Layout);
@@ -315,22 +296,6 @@ public class Questionario extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rbRuimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbRuimActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbRuimActionPerformed
-
-    private void rbPessimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPessimoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbPessimoActionPerformed
-
-    private void rbBomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbBomActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbBomActionPerformed
-
-    private void rbRegularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbRegularActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbRegularActionPerformed
-
     private void rbPessimo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPessimo1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rbPessimo1ActionPerformed
@@ -348,30 +313,49 @@ public class Questionario extends javax.swing.JFrame {
     }//GEN-LAST:event_rbBom1ActionPerformed
 
     private void botaoAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAvancarActionPerformed
+        // Variavel cardAtual incrementa 1
         cardAtual++;
         
+        // botaoVoltar fica Enabled
+        botaoVoltar.setEnabled(true);
+        
+        // Texto do botão avançar recebe um valor diferente caso o cardAtual tenha o valor 3
         if(cardAtual==3)
             botaoAvancar.setText("Finalizar pesquisa");
+        
+        // Caso o usuário finalize a pesquisa, é exibida a mensagem e encerra-se o programa
         else if(cardAtual>3){
             JOptionPane.showMessageDialog(this, "Muito obrigado! :)", 
                     "Pesquisa finalizada", JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);
         }
         
+        System.out.println(grupoPergunta1.isSelected(rbBom.getModel()));
+        
+        // Painel principal altera-se para o próximo card (painel)
         CardLayout card = (CardLayout) painelPrincipal.getLayout();
-        card.next(painelPrincipal);        
+        card.next(painelPrincipal);
         
     }//GEN-LAST:event_botaoAvancarActionPerformed
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
         
         if(cardAtual>1){
+            // Ao usuário voltar do card 2 para o 1, desativar o botaoVoltar
+            if(cardAtual==2)
+                botaoVoltar.setEnabled(false);
+            
+            // Texto do botão avançar é sempre setado
             botaoAvancar.setText("Avançar >>");
             
+            // Variável cardAtual decrementa 1
             cardAtual--;
+            
+            // Painel principal altera-se para o card (painel) anterior 
             CardLayout card = (CardLayout) painelPrincipal.getLayout();
             card.previous(painelPrincipal); 
         }
+        
         
     }//GEN-LAST:event_botaoVoltarActionPerformed
 
