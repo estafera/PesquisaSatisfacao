@@ -25,7 +25,6 @@ public class Questionario extends javax.swing.JFrame {
         initComponents();
         qtdPaineis = painelPrincipal.getComponentCount();
         utGrupo = new GrupoDeBotoes();
-        
     }
     
     @SuppressWarnings("unchecked")
@@ -474,7 +473,7 @@ public class Questionario extends javax.swing.JFrame {
         return input;  
     }
     
-    public void avancar(){
+    void avancar(){
         // Variavel cardAtual incrementa 1
             cardAtual++;
 
@@ -492,7 +491,7 @@ public class Questionario extends javax.swing.JFrame {
             card.next(painelPrincipal);
     }
     
-    public void voltar(){
+    void voltar(){
         if(cardAtual>1){
             // Ao usuário voltar do card 2 para o 1, desativar o botaoVoltar
             if(cardAtual==2)
@@ -505,6 +504,11 @@ public class Questionario extends javax.swing.JFrame {
             CardLayout card = (CardLayout) painelPrincipal.getLayout();
             card.previous(painelPrincipal); 
         }     
+    }
+    
+    public void imprimirCliente(){
+        System.out.println("Nome do cliente: "+cliente.getNome());
+        System.out.println("CPF: "+cliente.getCPF());
     }
     
     /**

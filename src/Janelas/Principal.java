@@ -10,14 +10,14 @@ package Janelas;
  * @author Ramon Honorio
  */
 public class Principal extends javax.swing.JFrame {
-    Questionario quest;
+    CadastroCliente cad;
     
     /**
      * Creates new form Principal
      */
     public Principal() {
         initComponents();
-        quest = new Questionario();
+        cad = new CadastroCliente();
     }
 
     /**
@@ -109,11 +109,15 @@ public class Principal extends javax.swing.JFrame {
 
     private void btNovaPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovaPesquisaActionPerformed
         // TODO add your handling code here:
-        quest.dispose();
-        quest = new Questionario();
-        quest.setVisible(true);
+        novoCadastro();
     }//GEN-LAST:event_btNovaPesquisaActionPerformed
-
+    
+    public void novoCadastro(){
+        cad.dispose();
+        cad = new CadastroCliente();
+        cad.setVisible(true);
+    }
+    
     /**
      * @param args the command line arguments
      */

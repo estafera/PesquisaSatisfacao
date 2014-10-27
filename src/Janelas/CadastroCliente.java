@@ -6,19 +6,24 @@
 
 package Janelas;
 
+import Classes.Cliente;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 /**
  *
  * @author geoinformacao
  */
 public class CadastroCliente extends javax.swing.JFrame {
-
+    Questionario quest;
+    
     /**
      * Creates new form CadastroCliente
      */
     public CadastroCliente() {
         initComponents();
+        quest = new Questionario();
     }
 
     /**
@@ -146,8 +151,19 @@ public class CadastroCliente extends javax.swing.JFrame {
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         // TODO add your handling code here:
+        novoQuestionario();
+        quest.cliente = new Cliente(txtNome.getText(), txtCPF.getText());
+        quest.imprimirCliente();
     }//GEN-LAST:event_btCadastrarActionPerformed
 
+    public void novoQuestionario(){
+        quest.dispose();
+        quest = new Questionario();
+        quest.setVisible(true);
+    }
+    
+    
+    
     /**
      * @param args the command line arguments
      */
