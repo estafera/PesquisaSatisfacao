@@ -6,6 +6,8 @@
 
 package Janelas;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author geoinformacao
@@ -28,105 +30,123 @@ public class CadastroCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelTitulo = new javax.swing.JLabel();
-        jLabelNome = new javax.swing.JLabel();
-        jTxtNome = new javax.swing.JTextField();
-        jLabelCPF = new javax.swing.JLabel();
-        jFormCPF = new javax.swing.JFormattedTextField();
-        jLabelSave = new javax.swing.JLabel();
-        jButtonCadastrar = new javax.swing.JToggleButton();
-        jLabelCancel = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        labelTitulo = new javax.swing.JLabel();
+        labelNome = new javax.swing.JLabel();
+        txtNome = new javax.swing.JTextField();
+        labelCPF = new javax.swing.JLabel();
+        txtCPF = new javax.swing.JFormattedTextField();
+        btCancelar = new javax.swing.JButton();
+        btCadastrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabelTitulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabelTitulo.setText("Cadastro de Cliente");
+        labelTitulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTitulo.setText("Informações do cliente");
 
-        jLabelNome.setText("Nome:");
+        labelNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelNome.setText("Nome:");
 
-        jLabelCPF.setText("CPF:");
+        txtNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNome.setToolTipText("Insira aqui o nome completo");
+
+        labelCPF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelCPF.setText("CPF:");
 
         try {
-            jFormCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            txtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtCPF.setToolTipText("Insira aqui o CPF");
+        txtCPF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabelSave.setText("Cadastrar");
+        btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botoes/cancelar naos.png"))); // NOI18N
+        btCancelar.setText("Cancelar");
+        btCancelar.setBorderPainted(false);
+        btCancelar.setContentAreaFilled(false);
+        btCancelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btCancelar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botoes/cancelar rollover.png"))); // NOI18N
+        btCancelar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCancelarActionPerformed(evt);
+            }
+        });
 
-        jButtonCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/save.png"))); // NOI18N
-        jButtonCadastrar.setContentAreaFilled(false);
-        jButtonCadastrar.setMaximumSize(new java.awt.Dimension(32, 32));
-        jButtonCadastrar.setMinimumSize(new java.awt.Dimension(32, 32));
-        jButtonCadastrar.setPreferredSize(new java.awt.Dimension(32, 32));
-        jButtonCadastrar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/save2.png"))); // NOI18N
-
-        jLabelCancel.setText("Cancelar");
-
-        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cancel.png"))); // NOI18N
-        jToggleButton1.setBorder(null);
-        jToggleButton1.setBorderPainted(false);
-        jToggleButton1.setContentAreaFilled(false);
-        jToggleButton1.setPreferredSize(new java.awt.Dimension(34, 34));
-        jToggleButton1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cancel2.png"))); // NOI18N
+        btCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botoes/add cliente.png"))); // NOI18N
+        btCadastrar.setText("Cadastrar");
+        btCadastrar.setBorderPainted(false);
+        btCadastrar.setContentAreaFilled(false);
+        btCadastrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btCadastrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botoes/add cliente rollover.png"))); // NOI18N
+        btCadastrar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCadastrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addComponent(jLabelTitulo))
-                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(labelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btCancelar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btCadastrar))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelCPF)
-                            .addComponent(jLabelNome))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(labelCPF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFormCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(38, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jLabelCancel)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jLabelSave)
-                    .addComponent(jButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(58, 58, 58))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txtNome))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelTitulo)
+                .addComponent(labelTitulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelNome))
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelNome))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCPF)
-                    .addComponent(jFormCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonCadastrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelSave)
-                    .addComponent(jLabelCancel))
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelCPF)
+                            .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btCancelar))
+                    .addComponent(btCadastrar))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Cancelando...");
+    }//GEN-LAST:event_btCancelarActionPerformed
+
+    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btCadastrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,14 +184,12 @@ public class CadastroCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton jButtonCadastrar;
-    private javax.swing.JFormattedTextField jFormCPF;
-    private javax.swing.JLabel jLabelCPF;
-    private javax.swing.JLabel jLabelCancel;
-    private javax.swing.JLabel jLabelNome;
-    private javax.swing.JLabel jLabelSave;
-    private javax.swing.JLabel jLabelTitulo;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JTextField jTxtNome;
+    private javax.swing.JButton btCadastrar;
+    private javax.swing.JButton btCancelar;
+    private javax.swing.JLabel labelCPF;
+    private javax.swing.JLabel labelNome;
+    private javax.swing.JLabel labelTitulo;
+    private javax.swing.JFormattedTextField txtCPF;
+    private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
 }

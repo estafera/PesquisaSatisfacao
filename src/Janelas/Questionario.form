@@ -2,13 +2,17 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Component class="javax.swing.ButtonGroup" name="grupoPergunta1">
+    <Component class="javax.swing.ButtonGroup" name="grupoP1">
     </Component>
-    <Component class="javax.swing.ButtonGroup" name="grupoPergunta2">
+    <Component class="javax.swing.ButtonGroup" name="grupoP2">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="grupoP3">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="grupoP4">
     </Component>
   </NonVisualComponents>
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="title" type="java.lang.String" value="Pesquisa de Satisfacao"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
@@ -53,9 +57,9 @@
               <EmptySpace max="32767" attributes="0"/>
               <Component id="painelPrincipal" min="-2" pref="164" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="botaoAvancar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="botaoVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="botaoVoltar" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="botaoAvancar" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -136,17 +140,17 @@
             <Component class="javax.swing.JRadioButton" name="rbPessimo">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="grupoPergunta1"/>
+                  <ComponentRef name="grupoP1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="P&#xe9;ssimo"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/pessimo_naos.png"/>
+                  <Image iconType="3" name="/img/questionario/pessimo_naos.png"/>
                 </Property>
                 <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/pessimo_rollover.png"/>
+                  <Image iconType="3" name="/img/questionario/pessimo_rollover.png"/>
                 </Property>
                 <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/pessimo_selec.png"/>
+                  <Image iconType="3" name="/img/questionario/pessimo_selec.png"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -156,17 +160,17 @@
             <Component class="javax.swing.JRadioButton" name="rbRuim">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="grupoPergunta1"/>
+                  <ComponentRef name="grupoP1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ruim"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/ruim_naos.png"/>
+                  <Image iconType="3" name="/img/questionario/ruim_naos.png"/>
                 </Property>
                 <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/ruim_rollover.png"/>
+                  <Image iconType="3" name="/img/questionario/ruim_rollover.png"/>
                 </Property>
                 <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/ruim_selec.png"/>
+                  <Image iconType="3" name="/img/questionario/ruim_selec.png"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -176,17 +180,17 @@
             <Component class="javax.swing.JRadioButton" name="rbRegular">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="grupoPergunta1"/>
+                  <ComponentRef name="grupoP1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Regular"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/regular_naos.png"/>
+                  <Image iconType="3" name="/img/questionario/regular_naos.png"/>
                 </Property>
                 <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/regular_rollover.png"/>
+                  <Image iconType="3" name="/img/questionario/regular_rollover.png"/>
                 </Property>
                 <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/regular_selec.png"/>
+                  <Image iconType="3" name="/img/questionario/regular_selec.png"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -196,17 +200,17 @@
             <Component class="javax.swing.JRadioButton" name="rbBom">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="grupoPergunta1"/>
+                  <ComponentRef name="grupoP1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Bom"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/bom_naos.png"/>
+                  <Image iconType="3" name="/img/questionario/bom_naos.png"/>
                 </Property>
                 <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/bom_rollover.png"/>
+                  <Image iconType="3" name="/img/questionario/bom_rollover.png"/>
                 </Property>
                 <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/bom_selec.png"/>
+                  <Image iconType="3" name="/img/questionario/bom_selec.png"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -226,7 +230,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jltitulo1" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jlPergunta1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jlPergunta1" alignment="0" pref="491" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="rbPessimo1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -235,7 +239,7 @@
                       <Component id="rbRegular1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="rbBom1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="13" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -279,70 +283,82 @@
             <Component class="javax.swing.JRadioButton" name="rbPessimo1">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="grupoPergunta2"/>
+                  <ComponentRef name="grupoP2"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="P&#xe9;ssimo"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/pessimo_naos.png"/>
+                  <Image iconType="3" name="/img/questionario/pessimo_naos.png"/>
                 </Property>
                 <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/pessimo_rollover.png"/>
+                  <Image iconType="3" name="/img/questionario/pessimo_rollover.png"/>
                 </Property>
                 <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/pessimo_selec.png"/>
+                  <Image iconType="3" name="/img/questionario/pessimo_selec.png"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Questionario_rbPessimo"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbRuim1">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="grupoPergunta2"/>
+                  <ComponentRef name="grupoP2"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ruim"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/ruim_naos.png"/>
+                  <Image iconType="3" name="/img/questionario/ruim_naos.png"/>
                 </Property>
                 <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/ruim_rollover.png"/>
+                  <Image iconType="3" name="/img/questionario/ruim_rollover.png"/>
                 </Property>
                 <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/ruim_selec.png"/>
+                  <Image iconType="3" name="/img/questionario/ruim_selec.png"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Questionario_rbRuim"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbRegular1">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="grupoPergunta2"/>
+                  <ComponentRef name="grupoP2"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Regular"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/regular_naos.png"/>
+                  <Image iconType="3" name="/img/questionario/regular_naos.png"/>
                 </Property>
                 <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/regular_rollover.png"/>
+                  <Image iconType="3" name="/img/questionario/regular_rollover.png"/>
                 </Property>
                 <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/regular_selec.png"/>
+                  <Image iconType="3" name="/img/questionario/regular_selec.png"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Questionario_rbRegular"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbBom1">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="grupoPergunta2"/>
+                  <ComponentRef name="grupoP2"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Bom"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/bom_naos.png"/>
+                  <Image iconType="3" name="/img/questionario/bom_naos.png"/>
                 </Property>
                 <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/bom_rollover.png"/>
+                  <Image iconType="3" name="/img/questionario/bom_rollover.png"/>
                 </Property>
                 <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/bom_selec.png"/>
+                  <Image iconType="3" name="/img/questionario/bom_selec.png"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Questionario_rbBom"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -357,7 +373,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jltitulo3" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jlPergunta3" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jlPergunta3" alignment="0" pref="491" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="rbPessimo2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -366,7 +382,7 @@
                       <Component id="rbRegular2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="rbBom2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="13" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -410,70 +426,82 @@
             <Component class="javax.swing.JRadioButton" name="rbPessimo2">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="grupoPergunta2"/>
+                  <ComponentRef name="grupoP3"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="P&#xe9;ssimo"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/pessimo_naos.png"/>
+                  <Image iconType="3" name="/img/questionario/pessimo_naos.png"/>
                 </Property>
                 <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/pessimo_rollover.png"/>
+                  <Image iconType="3" name="/img/questionario/pessimo_rollover.png"/>
                 </Property>
                 <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/pessimo_selec.png"/>
+                  <Image iconType="3" name="/img/questionario/pessimo_selec.png"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Questionario_rbPessimo"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbRuim2">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="grupoPergunta2"/>
+                  <ComponentRef name="grupoP3"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ruim"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/ruim_naos.png"/>
+                  <Image iconType="3" name="/img/questionario/ruim_naos.png"/>
                 </Property>
                 <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/ruim_rollover.png"/>
+                  <Image iconType="3" name="/img/questionario/ruim_rollover.png"/>
                 </Property>
                 <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/ruim_selec.png"/>
+                  <Image iconType="3" name="/img/questionario/ruim_selec.png"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Questionario_rbRuim"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbRegular2">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="grupoPergunta2"/>
+                  <ComponentRef name="grupoP3"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Regular"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/regular_naos.png"/>
+                  <Image iconType="3" name="/img/questionario/regular_naos.png"/>
                 </Property>
                 <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/regular_rollover.png"/>
+                  <Image iconType="3" name="/img/questionario/regular_rollover.png"/>
                 </Property>
                 <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/regular_selec.png"/>
+                  <Image iconType="3" name="/img/questionario/regular_selec.png"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Questionario_rbRegular"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbBom2">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="grupoPergunta2"/>
+                  <ComponentRef name="grupoP3"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Bom"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/bom_naos.png"/>
+                  <Image iconType="3" name="/img/questionario/bom_naos.png"/>
                 </Property>
                 <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/bom_rollover.png"/>
+                  <Image iconType="3" name="/img/questionario/bom_rollover.png"/>
                 </Property>
                 <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/bom_selec.png"/>
+                  <Image iconType="3" name="/img/questionario/bom_selec.png"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Questionario_rbBom"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -487,23 +515,18 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jlPergunta5" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="rbPessimo4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="rbRuim4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="rbRegular4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="rbBom4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="jltitulo4" alignment="1" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jlPergunta5" alignment="0" pref="491" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="rbPessimo3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="rbRuim3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="rbRegular3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="rbBom3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
+                  <Component id="jltitulo4" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -514,10 +537,10 @@
                       <Component id="jlPergunta5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="rbRuim4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="rbPessimo4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="rbRegular4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="rbBom4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rbRuim3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rbPessimo3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rbRegular3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rbBom3" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="16" max="32767" attributes="0"/>
                   </Group>
@@ -543,73 +566,85 @@
                 <Property name="text" type="java.lang.String" value="Classifique o atendimento do taxista:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="rbPessimo4">
+            <Component class="javax.swing.JRadioButton" name="rbPessimo3">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="grupoPergunta2"/>
+                  <ComponentRef name="grupoP4"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="P&#xe9;ssimo"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/pessimo_naos.png"/>
+                  <Image iconType="3" name="/img/questionario/pessimo_naos.png"/>
                 </Property>
                 <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/pessimo_rollover.png"/>
+                  <Image iconType="3" name="/img/questionario/pessimo_rollover.png"/>
                 </Property>
                 <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/pessimo_selec.png"/>
+                  <Image iconType="3" name="/img/questionario/pessimo_selec.png"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Questionario_rbPessimo"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="rbRuim4">
+            <Component class="javax.swing.JRadioButton" name="rbRuim3">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="grupoPergunta2"/>
+                  <ComponentRef name="grupoP4"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ruim"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/ruim_naos.png"/>
+                  <Image iconType="3" name="/img/questionario/ruim_naos.png"/>
                 </Property>
                 <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/ruim_rollover.png"/>
+                  <Image iconType="3" name="/img/questionario/ruim_rollover.png"/>
                 </Property>
                 <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/ruim_selec.png"/>
+                  <Image iconType="3" name="/img/questionario/ruim_selec.png"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Questionario_rbRuim"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="rbRegular4">
+            <Component class="javax.swing.JRadioButton" name="rbRegular3">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="grupoPergunta2"/>
+                  <ComponentRef name="grupoP4"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Regular"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/regular_naos.png"/>
+                  <Image iconType="3" name="/img/questionario/regular_naos.png"/>
                 </Property>
                 <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/regular_rollover.png"/>
+                  <Image iconType="3" name="/img/questionario/regular_rollover.png"/>
                 </Property>
                 <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/regular_selec.png"/>
+                  <Image iconType="3" name="/img/questionario/regular_selec.png"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Questionario_rbRegular"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="rbBom4">
+            <Component class="javax.swing.JRadioButton" name="rbBom3">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="grupoPergunta2"/>
+                  <ComponentRef name="grupoP4"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Bom"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/bom_naos.png"/>
+                  <Image iconType="3" name="/img/questionario/bom_naos.png"/>
                 </Property>
                 <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/bom_rollover.png"/>
+                  <Image iconType="3" name="/img/questionario/bom_rollover.png"/>
                 </Property>
                 <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagens/bom_selec.png"/>
+                  <Image iconType="3" name="/img/questionario/bom_selec.png"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Questionario_rbBom"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -673,7 +708,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="jTextArea1">
+                <Component class="javax.swing.JTextArea" name="txtAreaSugestao">
                   <Properties>
                     <Property name="columns" type="int" value="5"/>
                     <Property name="lineWrap" type="boolean" value="true"/>
@@ -684,20 +719,6 @@
             </Container>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="jltitulo5">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="18" style="0"/>
-            </Property>
-            <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Question&#xe1;rio (3/4)"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card6"/>
-            </Constraint>
-          </Constraints>
-        </Component>
       </SubComponents>
     </Container>
     <Component class="javax.swing.JButton" name="botaoAvancar">
@@ -706,10 +727,10 @@
           <Font name="Tahoma" size="14" style="0"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Imagens/next_1.png"/>
+          <Image iconType="3" name="/img/botoes/proximo naos.png"/>
         </Property>
-        <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Imagens/next2_1.png"/>
+        <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/img/botoes/proximo rollover.png"/>
         </Property>
       </Properties>
       <Events>
@@ -722,10 +743,11 @@
           <Font name="Tahoma" size="14" style="0"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Imagens/previous_1.png"/>
+          <Image iconType="3" name="/img/botoes/anterior naos.png"/>
         </Property>
-        <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Imagens/previous2_1.png"/>
+        <Property name="enabled" type="boolean" value="false"/>
+        <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/img/botoes/anterior rollover.png"/>
         </Property>
       </Properties>
       <Events>

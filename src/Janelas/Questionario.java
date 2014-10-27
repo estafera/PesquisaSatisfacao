@@ -7,6 +7,7 @@ package Janelas;
 
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
+import uteis.GrupoDeBotoes;
 
 /**
  *
@@ -15,19 +16,26 @@ import javax.swing.JOptionPane;
 public class Questionario extends javax.swing.JFrame {
 
     private int cardAtual = 1;
-            
+    private final int qtdPaineis;
+    private final uteis.GrupoDeBotoes utGrupo;
+    
+    public Classes.Cliente cliente;
+    
     public Questionario() {
         initComponents();
-        botaoVoltar.setEnabled(false);
+        qtdPaineis = painelPrincipal.getComponentCount();
+        utGrupo = new GrupoDeBotoes();
+        
     }
-
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        grupoPergunta1 = new javax.swing.ButtonGroup();
-        grupoPergunta2 = new javax.swing.ButtonGroup();
+        grupoP1 = new javax.swing.ButtonGroup();
+        grupoP2 = new javax.swing.ButtonGroup();
+        grupoP3 = new javax.swing.ButtonGroup();
+        grupoP4 = new javax.swing.ButtonGroup();
         painelPrincipal = new javax.swing.JPanel();
         painel1 = new javax.swing.JPanel();
         jltitulo = new javax.swing.JLabel();
@@ -53,20 +61,19 @@ public class Questionario extends javax.swing.JFrame {
         painel4 = new javax.swing.JPanel();
         jltitulo4 = new javax.swing.JLabel();
         jlPergunta5 = new javax.swing.JLabel();
-        rbPessimo4 = new javax.swing.JRadioButton();
-        rbRuim4 = new javax.swing.JRadioButton();
-        rbRegular4 = new javax.swing.JRadioButton();
-        rbBom4 = new javax.swing.JRadioButton();
+        rbPessimo3 = new javax.swing.JRadioButton();
+        rbRuim3 = new javax.swing.JRadioButton();
+        rbRegular3 = new javax.swing.JRadioButton();
+        rbBom3 = new javax.swing.JRadioButton();
         painel5 = new javax.swing.JPanel();
         jltitulo2 = new javax.swing.JLabel();
         jlPergunta2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jltitulo5 = new javax.swing.JLabel();
+        txtAreaSugestao = new javax.swing.JTextArea();
         botaoAvancar = new javax.swing.JButton();
         botaoVoltar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Pesquisa de Satisfacao");
         setResizable(false);
 
@@ -80,29 +87,29 @@ public class Questionario extends javax.swing.JFrame {
         jlPergunta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlPergunta.setText("Num âmbito geral, como você classificaria o nosso serviço?");
 
-        grupoPergunta1.add(rbPessimo);
+        grupoP1.add(rbPessimo);
         rbPessimo.setText("Péssimo");
-        rbPessimo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessimo_naos.png"))); // NOI18N
-        rbPessimo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessimo_rollover.png"))); // NOI18N
-        rbPessimo.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessimo_selec.png"))); // NOI18N
+        rbPessimo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/pessimo_naos.png"))); // NOI18N
+        rbPessimo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/pessimo_rollover.png"))); // NOI18N
+        rbPessimo.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/pessimo_selec.png"))); // NOI18N
 
-        grupoPergunta1.add(rbRuim);
+        grupoP1.add(rbRuim);
         rbRuim.setText("Ruim");
-        rbRuim.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ruim_naos.png"))); // NOI18N
-        rbRuim.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ruim_rollover.png"))); // NOI18N
-        rbRuim.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ruim_selec.png"))); // NOI18N
+        rbRuim.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/ruim_naos.png"))); // NOI18N
+        rbRuim.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/ruim_rollover.png"))); // NOI18N
+        rbRuim.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/ruim_selec.png"))); // NOI18N
 
-        grupoPergunta1.add(rbRegular);
+        grupoP1.add(rbRegular);
         rbRegular.setText("Regular");
-        rbRegular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/regular_naos.png"))); // NOI18N
-        rbRegular.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/regular_rollover.png"))); // NOI18N
-        rbRegular.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/regular_selec.png"))); // NOI18N
+        rbRegular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/regular_naos.png"))); // NOI18N
+        rbRegular.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/regular_rollover.png"))); // NOI18N
+        rbRegular.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/regular_selec.png"))); // NOI18N
 
-        grupoPergunta1.add(rbBom);
+        grupoP1.add(rbBom);
         rbBom.setText("Bom");
-        rbBom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bom_naos.png"))); // NOI18N
-        rbBom.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bom_rollover.png"))); // NOI18N
-        rbBom.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bom_selec.png"))); // NOI18N
+        rbBom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/bom_naos.png"))); // NOI18N
+        rbBom.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/bom_rollover.png"))); // NOI18N
+        rbBom.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/bom_selec.png"))); // NOI18N
 
         javax.swing.GroupLayout painel1Layout = new javax.swing.GroupLayout(painel1);
         painel1.setLayout(painel1Layout);
@@ -148,36 +155,36 @@ public class Questionario extends javax.swing.JFrame {
         jlPergunta1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlPergunta1.setText("Como você classificaria o prazo de atendimento?");
 
-        grupoPergunta2.add(rbPessimo1);
+        grupoP2.add(rbPessimo1);
         rbPessimo1.setText("Péssimo");
-        rbPessimo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessimo_naos.png"))); // NOI18N
-        rbPessimo1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessimo_rollover.png"))); // NOI18N
-        rbPessimo1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessimo_selec.png"))); // NOI18N
+        rbPessimo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/pessimo_naos.png"))); // NOI18N
+        rbPessimo1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/pessimo_rollover.png"))); // NOI18N
+        rbPessimo1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/pessimo_selec.png"))); // NOI18N
 
-        grupoPergunta2.add(rbRuim1);
+        grupoP2.add(rbRuim1);
         rbRuim1.setText("Ruim");
-        rbRuim1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ruim_naos.png"))); // NOI18N
-        rbRuim1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ruim_rollover.png"))); // NOI18N
-        rbRuim1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ruim_selec.png"))); // NOI18N
+        rbRuim1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/ruim_naos.png"))); // NOI18N
+        rbRuim1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/ruim_rollover.png"))); // NOI18N
+        rbRuim1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/ruim_selec.png"))); // NOI18N
 
-        grupoPergunta2.add(rbRegular1);
+        grupoP2.add(rbRegular1);
         rbRegular1.setText("Regular");
-        rbRegular1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/regular_naos.png"))); // NOI18N
-        rbRegular1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/regular_rollover.png"))); // NOI18N
-        rbRegular1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/regular_selec.png"))); // NOI18N
+        rbRegular1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/regular_naos.png"))); // NOI18N
+        rbRegular1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/regular_rollover.png"))); // NOI18N
+        rbRegular1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/regular_selec.png"))); // NOI18N
 
-        grupoPergunta2.add(rbBom1);
+        grupoP2.add(rbBom1);
         rbBom1.setText("Bom");
-        rbBom1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bom_naos.png"))); // NOI18N
-        rbBom1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bom_rollover.png"))); // NOI18N
-        rbBom1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bom_selec.png"))); // NOI18N
+        rbBom1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/bom_naos.png"))); // NOI18N
+        rbBom1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/bom_rollover.png"))); // NOI18N
+        rbBom1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/bom_selec.png"))); // NOI18N
 
         javax.swing.GroupLayout painel2Layout = new javax.swing.GroupLayout(painel2);
         painel2.setLayout(painel2Layout);
         painel2Layout.setHorizontalGroup(
             painel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jltitulo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jlPergunta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jlPergunta1, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
             .addGroup(painel2Layout.createSequentialGroup()
                 .addComponent(rbPessimo1)
                 .addGap(18, 18, 18)
@@ -186,7 +193,7 @@ public class Questionario extends javax.swing.JFrame {
                 .addComponent(rbRegular1)
                 .addGap(18, 18, 18)
                 .addComponent(rbBom1)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         painel2Layout.setVerticalGroup(
             painel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,36 +220,36 @@ public class Questionario extends javax.swing.JFrame {
         jlPergunta3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlPergunta3.setText("Classifique o conforto da viagem:");
 
-        grupoPergunta2.add(rbPessimo2);
+        grupoP3.add(rbPessimo2);
         rbPessimo2.setText("Péssimo");
-        rbPessimo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessimo_naos.png"))); // NOI18N
-        rbPessimo2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessimo_rollover.png"))); // NOI18N
-        rbPessimo2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessimo_selec.png"))); // NOI18N
+        rbPessimo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/pessimo_naos.png"))); // NOI18N
+        rbPessimo2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/pessimo_rollover.png"))); // NOI18N
+        rbPessimo2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/pessimo_selec.png"))); // NOI18N
 
-        grupoPergunta2.add(rbRuim2);
+        grupoP3.add(rbRuim2);
         rbRuim2.setText("Ruim");
-        rbRuim2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ruim_naos.png"))); // NOI18N
-        rbRuim2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ruim_rollover.png"))); // NOI18N
-        rbRuim2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ruim_selec.png"))); // NOI18N
+        rbRuim2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/ruim_naos.png"))); // NOI18N
+        rbRuim2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/ruim_rollover.png"))); // NOI18N
+        rbRuim2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/ruim_selec.png"))); // NOI18N
 
-        grupoPergunta2.add(rbRegular2);
+        grupoP3.add(rbRegular2);
         rbRegular2.setText("Regular");
-        rbRegular2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/regular_naos.png"))); // NOI18N
-        rbRegular2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/regular_rollover.png"))); // NOI18N
-        rbRegular2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/regular_selec.png"))); // NOI18N
+        rbRegular2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/regular_naos.png"))); // NOI18N
+        rbRegular2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/regular_rollover.png"))); // NOI18N
+        rbRegular2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/regular_selec.png"))); // NOI18N
 
-        grupoPergunta2.add(rbBom2);
+        grupoP3.add(rbBom2);
         rbBom2.setText("Bom");
-        rbBom2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bom_naos.png"))); // NOI18N
-        rbBom2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bom_rollover.png"))); // NOI18N
-        rbBom2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bom_selec.png"))); // NOI18N
+        rbBom2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/bom_naos.png"))); // NOI18N
+        rbBom2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/bom_rollover.png"))); // NOI18N
+        rbBom2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/bom_selec.png"))); // NOI18N
 
         javax.swing.GroupLayout painel3Layout = new javax.swing.GroupLayout(painel3);
         painel3.setLayout(painel3Layout);
         painel3Layout.setHorizontalGroup(
             painel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jltitulo3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jlPergunta3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jlPergunta3, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
             .addGroup(painel3Layout.createSequentialGroup()
                 .addComponent(rbPessimo2)
                 .addGap(18, 18, 18)
@@ -251,7 +258,7 @@ public class Questionario extends javax.swing.JFrame {
                 .addComponent(rbRegular2)
                 .addGap(18, 18, 18)
                 .addComponent(rbBom2)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         painel3Layout.setVerticalGroup(
             painel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -278,48 +285,45 @@ public class Questionario extends javax.swing.JFrame {
         jlPergunta5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlPergunta5.setText("Classifique o atendimento do taxista:");
 
-        grupoPergunta2.add(rbPessimo4);
-        rbPessimo4.setText("Péssimo");
-        rbPessimo4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessimo_naos.png"))); // NOI18N
-        rbPessimo4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessimo_rollover.png"))); // NOI18N
-        rbPessimo4.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessimo_selec.png"))); // NOI18N
+        grupoP4.add(rbPessimo3);
+        rbPessimo3.setText("Péssimo");
+        rbPessimo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/pessimo_naos.png"))); // NOI18N
+        rbPessimo3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/pessimo_rollover.png"))); // NOI18N
+        rbPessimo3.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/pessimo_selec.png"))); // NOI18N
 
-        grupoPergunta2.add(rbRuim4);
-        rbRuim4.setText("Ruim");
-        rbRuim4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ruim_naos.png"))); // NOI18N
-        rbRuim4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ruim_rollover.png"))); // NOI18N
-        rbRuim4.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ruim_selec.png"))); // NOI18N
+        grupoP4.add(rbRuim3);
+        rbRuim3.setText("Ruim");
+        rbRuim3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/ruim_naos.png"))); // NOI18N
+        rbRuim3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/ruim_rollover.png"))); // NOI18N
+        rbRuim3.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/ruim_selec.png"))); // NOI18N
 
-        grupoPergunta2.add(rbRegular4);
-        rbRegular4.setText("Regular");
-        rbRegular4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/regular_naos.png"))); // NOI18N
-        rbRegular4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/regular_rollover.png"))); // NOI18N
-        rbRegular4.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/regular_selec.png"))); // NOI18N
+        grupoP4.add(rbRegular3);
+        rbRegular3.setText("Regular");
+        rbRegular3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/regular_naos.png"))); // NOI18N
+        rbRegular3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/regular_rollover.png"))); // NOI18N
+        rbRegular3.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/regular_selec.png"))); // NOI18N
 
-        grupoPergunta2.add(rbBom4);
-        rbBom4.setText("Bom");
-        rbBom4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bom_naos.png"))); // NOI18N
-        rbBom4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bom_rollover.png"))); // NOI18N
-        rbBom4.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bom_selec.png"))); // NOI18N
+        grupoP4.add(rbBom3);
+        rbBom3.setText("Bom");
+        rbBom3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/bom_naos.png"))); // NOI18N
+        rbBom3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/bom_rollover.png"))); // NOI18N
+        rbBom3.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/questionario/bom_selec.png"))); // NOI18N
 
         javax.swing.GroupLayout painel4Layout = new javax.swing.GroupLayout(painel4);
         painel4.setLayout(painel4Layout);
         painel4Layout.setHorizontalGroup(
             painel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlPergunta5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jlPergunta5, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
             .addGroup(painel4Layout.createSequentialGroup()
-                .addGroup(painel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painel4Layout.createSequentialGroup()
-                        .addComponent(rbPessimo4)
-                        .addGap(18, 18, 18)
-                        .addComponent(rbRuim4)
-                        .addGap(18, 18, 18)
-                        .addComponent(rbRegular4)
-                        .addGap(18, 18, 18)
-                        .addComponent(rbBom4)
-                        .addGap(0, 3, Short.MAX_VALUE))
-                    .addComponent(jltitulo4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addComponent(rbPessimo3)
+                .addGap(18, 18, 18)
+                .addComponent(rbRuim3)
+                .addGap(18, 18, 18)
+                .addComponent(rbRegular3)
+                .addGap(18, 18, 18)
+                .addComponent(rbBom3)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jltitulo4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         painel4Layout.setVerticalGroup(
             painel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -329,10 +333,10 @@ public class Questionario extends javax.swing.JFrame {
                 .addComponent(jlPergunta5)
                 .addGap(18, 18, 18)
                 .addGroup(painel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbRuim4)
-                    .addComponent(rbPessimo4)
-                    .addComponent(rbRegular4)
-                    .addComponent(rbBom4))
+                    .addComponent(rbRuim3)
+                    .addComponent(rbPessimo3)
+                    .addComponent(rbRegular3)
+                    .addComponent(rbBom3))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -346,10 +350,10 @@ public class Questionario extends javax.swing.JFrame {
         jlPergunta2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlPergunta2.setText("<html>É muito importante pra nós você deixar alguma sugestão para que possamos melhorar ainda mais o nosso serviço. (Opcional)</html>");
 
-        jTextArea1.setColumns(5);
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(4);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtAreaSugestao.setColumns(5);
+        txtAreaSugestao.setLineWrap(true);
+        txtAreaSugestao.setRows(4);
+        jScrollPane1.setViewportView(txtAreaSugestao);
 
         javax.swing.GroupLayout painel5Layout = new javax.swing.GroupLayout(painel5);
         painel5.setLayout(painel5Layout);
@@ -376,14 +380,9 @@ public class Questionario extends javax.swing.JFrame {
 
         painelPrincipal.add(painel5, "sugestao");
 
-        jltitulo5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jltitulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jltitulo5.setText("Questionário (3/4)");
-        painelPrincipal.add(jltitulo5, "card6");
-
         botaoAvancar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        botaoAvancar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/next_1.png"))); // NOI18N
-        botaoAvancar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/next2_1.png"))); // NOI18N
+        botaoAvancar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botoes/proximo naos.png"))); // NOI18N
+        botaoAvancar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botoes/proximo rollover.png"))); // NOI18N
         botaoAvancar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoAvancarActionPerformed(evt);
@@ -391,8 +390,9 @@ public class Questionario extends javax.swing.JFrame {
         });
 
         botaoVoltar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        botaoVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/previous_1.png"))); // NOI18N
-        botaoVoltar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/previous2_1.png"))); // NOI18N
+        botaoVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botoes/anterior naos.png"))); // NOI18N
+        botaoVoltar.setEnabled(false);
+        botaoVoltar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botoes/anterior rollover.png"))); // NOI18N
         botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoVoltarActionPerformed(evt);
@@ -421,9 +421,9 @@ public class Questionario extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(painelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoAvancar)
-                    .addComponent(botaoVoltar))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botaoVoltar)
+                    .addComponent(botaoAvancar))
                 .addContainerGap())
         );
 
@@ -432,49 +432,81 @@ public class Questionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAvancarActionPerformed
-        // Variavel cardAtual incrementa 1
-        cardAtual++;
-        
-        // botaoVoltar fica Enabled
-        botaoVoltar.setEnabled(true);
-        
-        // Texto do botão avançar recebe um valor diferente caso o cardAtual tenha o valor 3
-        if(cardAtual==4)
-            botaoAvancar.setText("Finalizar pesquisa");
-        
-        // Caso o usuário finalize a pesquisa, é exibida a mensagem e encerra-se o programa
-        else if(cardAtual>3){
-            JOptionPane.showMessageDialog(this, "Muito obrigado! :)", 
-                    "Pesquisa finalizada", JOptionPane.INFORMATION_MESSAGE);
-            System.exit(0);
-        }
-        
-        // Painel principal altera-se para o próximo card (painel)
-        CardLayout card = (CardLayout) painelPrincipal.getLayout();
-        card.next(painelPrincipal);
+
+        if (getInformacaoInserida()!=null)
+            avancar();
+        else 
+            JOptionPane.showMessageDialog(this, "Você precisa selecionar uma das opções.", "Erro", JOptionPane.ERROR_MESSAGE);
         
     }//GEN-LAST:event_botaoAvancarActionPerformed
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
         
+        voltar();         
+        
+    }//GEN-LAST:event_botaoVoltarActionPerformed
+
+    String getInformacaoInserida(){
+        String input = "*";
+        
+        switch(cardAtual){
+            case 1:
+                input = utGrupo.getSelectedButtonText(grupoP1);
+                break;
+            case 2:
+                input = utGrupo.getSelectedButtonText(grupoP2);
+                break;
+            case 3:
+                input = utGrupo.getSelectedButtonText(grupoP3);
+                break;
+            case 4:
+                input = utGrupo.getSelectedButtonText(grupoP4);
+                break;
+            default:
+                input = txtAreaSugestao.getText();
+                break;
+        }
+        
+        /*if(input == null)
+            input = "*";*/
+        
+        System.out.println(">> Entrada: "+input);
+        return input;  
+    }
+    
+    public void avancar(){
+        // Variavel cardAtual incrementa 1
+            cardAtual++;
+
+            // botaoVoltar fica Enabled
+            botaoVoltar.setEnabled(true);
+
+            // Caso o usuário finalize a pesquisa, é exibida a mensagem e encerra-se o programa
+            if(cardAtual>qtdPaineis){
+                JOptionPane.showMessageDialog(this, "Muito obrigado! :)", 
+                        "Pesquisa finalizada", JOptionPane.INFORMATION_MESSAGE);
+                System.exit(0);
+            }
+            // Painel principal altera-se para o próximo card (painel)
+            CardLayout card = (CardLayout) painelPrincipal.getLayout();
+            card.next(painelPrincipal);
+    }
+    
+    public void voltar(){
         if(cardAtual>1){
             // Ao usuário voltar do card 2 para o 1, desativar o botaoVoltar
             if(cardAtual==2)
                 botaoVoltar.setEnabled(false);
-            
-            // Texto do botão avançar é sempre setado
-            botaoAvancar.setText("Avançar >>");
-            
+                        
             // Variável cardAtual decrementa 1
             cardAtual--;
             
             // Painel principal altera-se para o card (painel) anterior 
             CardLayout card = (CardLayout) painelPrincipal.getLayout();
             card.previous(painelPrincipal); 
-        }        
-        
-    }//GEN-LAST:event_botaoVoltarActionPerformed
-
+        }     
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -514,10 +546,11 @@ public class Questionario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoAvancar;
     private javax.swing.JButton botaoVoltar;
-    private javax.swing.ButtonGroup grupoPergunta1;
-    private javax.swing.ButtonGroup grupoPergunta2;
+    private javax.swing.ButtonGroup grupoP1;
+    private javax.swing.ButtonGroup grupoP2;
+    private javax.swing.ButtonGroup grupoP3;
+    private javax.swing.ButtonGroup grupoP4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel jlPergunta;
     private javax.swing.JLabel jlPergunta1;
     private javax.swing.JLabel jlPergunta2;
@@ -528,7 +561,6 @@ public class Questionario extends javax.swing.JFrame {
     private javax.swing.JLabel jltitulo2;
     private javax.swing.JLabel jltitulo3;
     private javax.swing.JLabel jltitulo4;
-    private javax.swing.JLabel jltitulo5;
     private javax.swing.JPanel painel1;
     private javax.swing.JPanel painel2;
     private javax.swing.JPanel painel3;
@@ -538,18 +570,19 @@ public class Questionario extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbBom;
     private javax.swing.JRadioButton rbBom1;
     private javax.swing.JRadioButton rbBom2;
-    private javax.swing.JRadioButton rbBom4;
+    private javax.swing.JRadioButton rbBom3;
     private javax.swing.JRadioButton rbPessimo;
     private javax.swing.JRadioButton rbPessimo1;
     private javax.swing.JRadioButton rbPessimo2;
-    private javax.swing.JRadioButton rbPessimo4;
+    private javax.swing.JRadioButton rbPessimo3;
     private javax.swing.JRadioButton rbRegular;
     private javax.swing.JRadioButton rbRegular1;
     private javax.swing.JRadioButton rbRegular2;
-    private javax.swing.JRadioButton rbRegular4;
+    private javax.swing.JRadioButton rbRegular3;
     private javax.swing.JRadioButton rbRuim;
     private javax.swing.JRadioButton rbRuim1;
     private javax.swing.JRadioButton rbRuim2;
-    private javax.swing.JRadioButton rbRuim4;
+    private javax.swing.JRadioButton rbRuim3;
+    private javax.swing.JTextArea txtAreaSugestao;
     // End of variables declaration//GEN-END:variables
 }

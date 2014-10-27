@@ -7,9 +7,9 @@ package Classes;
 public class Cliente {
     
     private String nome;
-    private int cpf;
+    private String cpf;
     
-    public Cliente(String nome,int cpf){
+    public Cliente(String nome, String cpf){
         this.nome = nome;
         this.cpf = cpf;
     }
@@ -17,14 +17,14 @@ public class Cliente {
     public String getNome(){
         return nome;
     }
-    public void setNome(String n){
-        nome = n;
+    public void setNome(String nome){
+        this.nome = nome;
     }
     
-    public int getCPF(){
+    public String getCPF(){
         return cpf;
     }
-    public void setCPF(int c){
-        cpf = c;
+    public void setCPF(String cpf){
+        this.cpf = cpf;
     }
 }
