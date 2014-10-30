@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Classes;
+package Entidades;
 
 /**
  *
  * @author Ramon Honorio
  */
-public class Pergunta {
+public class Questionario {
     private String id;
-    private String descricao;
+    private String resposta;
 
-    public Pergunta(String id, String descricao) {
+    public Questionario(String id, String resposta) {
         this.id = id;
-        this.descricao = descricao;
+        this.resposta = resposta;
     }
 
     public String getId() {
@@ -26,12 +26,13 @@ public class Pergunta {
         this.id = id;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getResposta() {
+        return resposta;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setResposta(String resposta) {
+        this.resposta = resposta;
     }
+    
     
 }

@@ -5,17 +5,21 @@
  */
 package Janelas;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Ramon Honorio
  */
-public class Principal extends javax.swing.JFrame {
+public class TaxistaPrincipal extends javax.swing.JFrame {
     CadastroCliente cad;
     
     /**
      * Creates new form Principal
      */
-    public Principal() {
+    public TaxistaPrincipal() {
         initComponents();
         cad = new CadastroCliente();
     }
@@ -61,6 +65,11 @@ public class Principal extends javax.swing.JFrame {
         btSair.setIconTextGap(0);
         btSair.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botoes/logout rollover.png"))); // NOI18N
         btSair.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSairActionPerformed(evt);
+            }
+        });
 
         Titulo1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Titulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -111,12 +120,38 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         novoCadastro();
     }//GEN-LAST:event_btNovaPesquisaActionPerformed
+
+    private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
+        
+        janelaFechamento();
+        
+    }//GEN-LAST:event_btSairActionPerformed
     
     public void novoCadastro(){
         cad.dispose();
         cad = new CadastroCliente();
         cad.setVisible(true);
     }
+    
+    public void fechando(){
+        this.addWindowListener(new WindowAdapter(){
+            public void windowClosing(WindowEvent e){
+                janelaFechamento();
+            }
+        });
+    }
+    
+    public void janelaFechamento(){
+        String[] op = { "Sim", "Não" };
+        int escolha = JOptionPane.showOptionDialog(this, "Tem certeza que deseja sair?", "Sair", 
+                JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE, null, op, null);
+        
+            if(escolha == 0)
+                System.exit(0);
+    }
+    
+    
+
     
     /**
      * @param args the command line arguments
@@ -135,20 +170,23 @@ public class Principal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TaxistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TaxistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TaxistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TaxistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Principal().setVisible(true);
+                TaxistaPrincipal tp = new TaxistaPrincipal();
+                tp.setVisible(true);
+                tp.fechando();
             }
         });
     }

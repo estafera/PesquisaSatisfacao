@@ -6,7 +6,12 @@
 package Janelas;
 
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Font;
 import javax.swing.JOptionPane;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.text.AbstractDocument;
 import uteis.GrupoDeBotoes;
 
 /**
@@ -19,7 +24,7 @@ public class Questionario extends javax.swing.JFrame {
     private final int qtdPaineis;
     private final uteis.GrupoDeBotoes utGrupo;
     
-    public Classes.Cliente cliente;
+    public Entidades.Cliente cliente;
     
     public Questionario() {
         initComponents();
@@ -69,6 +74,8 @@ public class Questionario extends javax.swing.JFrame {
         jlPergunta2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaSugestao = new javax.swing.JTextArea();
+        lblCaracteres = new javax.swing.JLabel();
+        lblCaracteresContador = new javax.swing.JLabel();
         botaoAvancar = new javax.swing.JButton();
         botaoVoltar = new javax.swing.JButton();
 
@@ -343,28 +350,50 @@ public class Questionario extends javax.swing.JFrame {
 
         jltitulo2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jltitulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jltitulo2.setText("Sugestão");
+        jltitulo2.setText("Sugestão (Opcional)");
 
         jlPergunta2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jlPergunta2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlPergunta2.setText("<html>É muito importante pra nós você deixar alguma sugestão para que possamos melhorar ainda mais o nosso serviço. (Opcional)</html>");
+        jlPergunta2.setText("<html>É muito importante pra nós você deixar alguma sugestão para que possamos melhorar ainda mais o nosso serviço. </html>");
 
-        txtAreaSugestao.setColumns(5);
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        jScrollPane1.setAutoscrolls(true);
+        jScrollPane1.setFocusable(false);
+        jScrollPane1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        txtAreaSugestao.setColumns(2);
+        txtAreaSugestao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtAreaSugestao.setLineWrap(true);
-        txtAreaSugestao.setRows(4);
+        txtAreaSugestao.setRows(2);
         jScrollPane1.setViewportView(txtAreaSugestao);
+
+        lblCaracteres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCaracteres.setText("Caracteres restantes:");
+
+        lblCaracteresContador.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCaracteresContador.setText("140");
 
         javax.swing.GroupLayout painel5Layout = new javax.swing.GroupLayout(painel5);
         painel5.setLayout(painel5Layout);
         painel5Layout.setHorizontalGroup(
             painel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jltitulo2, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
             .addGroup(painel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(painel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jlPergunta2, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(painel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jltitulo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(painel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(painel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jlPergunta2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addGroup(painel5Layout.createSequentialGroup()
+                                .addGroup(painel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painel5Layout.createSequentialGroup()
+                                        .addComponent(lblCaracteres)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblCaracteresContador)))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
         );
         painel5Layout.setVerticalGroup(
             painel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -373,8 +402,12 @@ public class Questionario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jlPergunta2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(painel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCaracteresContador)
+                    .addComponent(lblCaracteres))
+                .addContainerGap())
         );
 
         painelPrincipal.add(painel5, "sugestao");
@@ -506,9 +539,38 @@ public class Questionario extends javax.swing.JFrame {
         }     
     }
     
-    public void imprimirCliente(){
-        System.out.println("Nome do cliente: "+cliente.getNome());
-        System.out.println("CPF: "+cliente.getCPF());
+    public void setFiltroCampoSugestao(){
+        AbstractDocument filtro = (AbstractDocument) txtAreaSugestao.getDocument();
+        filtro.setDocumentFilter(new Uteis.FiltroCaracteres(141, this));
+        
+        txtAreaSugestao.getDocument().addDocumentListener(new DocumentListener() {
+            
+        //<editor-fold defaultstate="collapsed" desc="metodos de DocumentListener">
+            @Override
+            public void insertUpdate(DocumentEvent de) {
+                checar();
+            }
+            @Override
+            public void removeUpdate(DocumentEvent de) {
+                checar();
+            }
+            @Override
+            public void changedUpdate(DocumentEvent de) {
+                checar();
+            }
+//</editor-fold>
+            public void checar(){
+                int cont = 140 - txtAreaSugestao.getText().length();
+                
+                if(cont < 20){
+                    lblCaracteresContador.setForeground(Color.RED);
+                } else {
+                    lblCaracteresContador.setForeground(Color.BLACK);
+                }
+                
+                lblCaracteresContador.setText(String.valueOf(cont));
+            }
+        });
     }
     
     /**
@@ -542,7 +604,9 @@ public class Questionario extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Questionario().setVisible(true);
+                Questionario q = new Questionario();
+                q.setVisible(true);
+                q.setFiltroCampoSugestao();
             }
         });
     }
@@ -565,6 +629,8 @@ public class Questionario extends javax.swing.JFrame {
     private javax.swing.JLabel jltitulo2;
     private javax.swing.JLabel jltitulo3;
     private javax.swing.JLabel jltitulo4;
+    private javax.swing.JLabel lblCaracteres;
+    private javax.swing.JLabel lblCaracteresContador;
     private javax.swing.JPanel painel1;
     private javax.swing.JPanel painel2;
     private javax.swing.JPanel painel3;

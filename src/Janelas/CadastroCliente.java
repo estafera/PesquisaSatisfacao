@@ -6,10 +6,8 @@
 
 package Janelas;
 
-import Classes.Cliente;
-import javax.swing.JFrame;
+import Entidades.Cliente;
 import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
 
 /**
  *
@@ -145,15 +143,13 @@ public class CadastroCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Cancelando...");
+        dispose();
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
-        // TODO add your handling code here:
         novoQuestionario();
-        quest.cliente = new Cliente(txtNome.getText(), txtCPF.getText());
-        quest.imprimirCliente();
+        quest.cliente = new Cliente("0", txtNome.getText(), txtCPF.getText());
+        imprimirCliente(quest.cliente);
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     public void novoQuestionario(){
@@ -162,6 +158,10 @@ public class CadastroCliente extends javax.swing.JFrame {
         quest.setVisible(true);
     }
     
+    public void imprimirCliente(Cliente c){
+        System.out.println("Nome do cliente: "+c.getNome());
+        System.out.println("CPF: "+c.getCPF());
+    }
     
     
     /**
