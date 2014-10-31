@@ -20,15 +20,19 @@ import uteis.GrupoDeBotoes;
  */
 public class Questionario extends javax.swing.JFrame {
 
-    private int cardAtual = 1;
+    private int cardAtual;
     private final int qtdPaineis;
     private final uteis.GrupoDeBotoes utGrupo;
     
     public Entidades.Cliente cliente;
+    public Entidades.Questionario quest;
     
     public Questionario() {
         initComponents();
+        
+        cardAtual = 1;
         qtdPaineis = painelPrincipal.getComponentCount();
+        quest = new Entidades.Questionario();
         utGrupo = new GrupoDeBotoes();
     }
     
@@ -43,35 +47,35 @@ public class Questionario extends javax.swing.JFrame {
         painelPrincipal = new javax.swing.JPanel();
         painel1 = new javax.swing.JPanel();
         jltitulo = new javax.swing.JLabel();
-        jlPergunta = new javax.swing.JLabel();
+        lblPergunta1 = new javax.swing.JLabel();
         rbPessimo = new javax.swing.JRadioButton();
         rbRuim = new javax.swing.JRadioButton();
         rbRegular = new javax.swing.JRadioButton();
         rbBom = new javax.swing.JRadioButton();
         painel2 = new javax.swing.JPanel();
-        jltitulo1 = new javax.swing.JLabel();
-        jlPergunta1 = new javax.swing.JLabel();
+        lblTitulo2 = new javax.swing.JLabel();
+        lblPergunta2 = new javax.swing.JLabel();
         rbPessimo1 = new javax.swing.JRadioButton();
         rbRuim1 = new javax.swing.JRadioButton();
         rbRegular1 = new javax.swing.JRadioButton();
         rbBom1 = new javax.swing.JRadioButton();
         painel3 = new javax.swing.JPanel();
-        jltitulo3 = new javax.swing.JLabel();
-        jlPergunta3 = new javax.swing.JLabel();
+        lblTitulo3 = new javax.swing.JLabel();
+        lblPergunta3 = new javax.swing.JLabel();
         rbPessimo2 = new javax.swing.JRadioButton();
         rbRuim2 = new javax.swing.JRadioButton();
         rbRegular2 = new javax.swing.JRadioButton();
         rbBom2 = new javax.swing.JRadioButton();
         painel4 = new javax.swing.JPanel();
-        jltitulo4 = new javax.swing.JLabel();
-        jlPergunta5 = new javax.swing.JLabel();
+        lblTitulo4 = new javax.swing.JLabel();
+        lblPergunta4 = new javax.swing.JLabel();
         rbPessimo3 = new javax.swing.JRadioButton();
         rbRuim3 = new javax.swing.JRadioButton();
         rbRegular3 = new javax.swing.JRadioButton();
         rbBom3 = new javax.swing.JRadioButton();
         painel5 = new javax.swing.JPanel();
-        jltitulo2 = new javax.swing.JLabel();
-        jlPergunta2 = new javax.swing.JLabel();
+        lblTituloSugestao = new javax.swing.JLabel();
+        lblSugestao = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaSugestao = new javax.swing.JTextArea();
         lblCaracteres = new javax.swing.JLabel();
@@ -89,9 +93,9 @@ public class Questionario extends javax.swing.JFrame {
         jltitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jltitulo.setText("Questionário (1/4)");
 
-        jlPergunta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jlPergunta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlPergunta.setText("Num âmbito geral, como você classificaria o nosso serviço?");
+        lblPergunta1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPergunta1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPergunta1.setText("Num âmbito geral, como você classificaria o nosso serviço?");
 
         grupoP1.add(rbPessimo);
         rbPessimo.setText("Péssimo");
@@ -125,7 +129,7 @@ public class Questionario extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addGroup(painel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jltitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jlPergunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblPergunta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(painel1Layout.createSequentialGroup()
                         .addComponent(rbPessimo)
                         .addGap(18, 18, 18)
@@ -141,7 +145,7 @@ public class Questionario extends javax.swing.JFrame {
             .addGroup(painel1Layout.createSequentialGroup()
                 .addComponent(jltitulo)
                 .addGap(18, 18, 18)
-                .addComponent(jlPergunta)
+                .addComponent(lblPergunta1)
                 .addGap(18, 18, 18)
                 .addGroup(painel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbRuim)
@@ -153,13 +157,13 @@ public class Questionario extends javax.swing.JFrame {
 
         painelPrincipal.add(painel1, "pergunta1");
 
-        jltitulo1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jltitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jltitulo1.setText("Questionário (2/4)");
+        lblTitulo2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblTitulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo2.setText("Questionário (2/4)");
 
-        jlPergunta1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jlPergunta1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlPergunta1.setText("Como você classificaria o prazo de atendimento?");
+        lblPergunta2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPergunta2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPergunta2.setText("Como você classificaria o prazo de atendimento?");
 
         grupoP2.add(rbPessimo1);
         rbPessimo1.setText("Péssimo");
@@ -189,8 +193,8 @@ public class Questionario extends javax.swing.JFrame {
         painel2.setLayout(painel2Layout);
         painel2Layout.setHorizontalGroup(
             painel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jltitulo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jlPergunta1, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
+            .addComponent(lblTitulo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblPergunta2, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
             .addGroup(painel2Layout.createSequentialGroup()
                 .addComponent(rbPessimo1)
                 .addGap(18, 18, 18)
@@ -204,9 +208,9 @@ public class Questionario extends javax.swing.JFrame {
         painel2Layout.setVerticalGroup(
             painel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painel2Layout.createSequentialGroup()
-                .addComponent(jltitulo1)
+                .addComponent(lblTitulo2)
                 .addGap(18, 18, 18)
-                .addComponent(jlPergunta1)
+                .addComponent(lblPergunta2)
                 .addGap(18, 18, 18)
                 .addGroup(painel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbRuim1)
@@ -218,13 +222,13 @@ public class Questionario extends javax.swing.JFrame {
 
         painelPrincipal.add(painel2, "pergunta2");
 
-        jltitulo3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jltitulo3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jltitulo3.setText("Questionário (3/4)");
+        lblTitulo3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblTitulo3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo3.setText("Questionário (3/4)");
 
-        jlPergunta3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jlPergunta3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlPergunta3.setText("Classifique o conforto da viagem:");
+        lblPergunta3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPergunta3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPergunta3.setText("Classifique o conforto da viagem:");
 
         grupoP3.add(rbPessimo2);
         rbPessimo2.setText("Péssimo");
@@ -254,8 +258,8 @@ public class Questionario extends javax.swing.JFrame {
         painel3.setLayout(painel3Layout);
         painel3Layout.setHorizontalGroup(
             painel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jltitulo3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jlPergunta3, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
+            .addComponent(lblTitulo3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblPergunta3, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
             .addGroup(painel3Layout.createSequentialGroup()
                 .addComponent(rbPessimo2)
                 .addGap(18, 18, 18)
@@ -269,9 +273,9 @@ public class Questionario extends javax.swing.JFrame {
         painel3Layout.setVerticalGroup(
             painel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painel3Layout.createSequentialGroup()
-                .addComponent(jltitulo3)
+                .addComponent(lblTitulo3)
                 .addGap(18, 18, 18)
-                .addComponent(jlPergunta3)
+                .addComponent(lblPergunta3)
                 .addGap(18, 18, 18)
                 .addGroup(painel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbRuim2)
@@ -283,13 +287,13 @@ public class Questionario extends javax.swing.JFrame {
 
         painelPrincipal.add(painel3, "pergunta3");
 
-        jltitulo4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jltitulo4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jltitulo4.setText("Questionário (4/4)");
+        lblTitulo4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblTitulo4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo4.setText("Questionário (4/4)");
 
-        jlPergunta5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jlPergunta5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlPergunta5.setText("Classifique o atendimento do taxista:");
+        lblPergunta4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPergunta4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPergunta4.setText("Classifique o atendimento do taxista:");
 
         grupoP4.add(rbPessimo3);
         rbPessimo3.setText("Péssimo");
@@ -319,7 +323,7 @@ public class Questionario extends javax.swing.JFrame {
         painel4.setLayout(painel4Layout);
         painel4Layout.setHorizontalGroup(
             painel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlPergunta5, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
+            .addComponent(lblPergunta4, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
             .addGroup(painel4Layout.createSequentialGroup()
                 .addComponent(rbPessimo3)
                 .addGap(18, 18, 18)
@@ -329,14 +333,14 @@ public class Questionario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(rbBom3)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jltitulo4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblTitulo4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         painel4Layout.setVerticalGroup(
             painel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painel4Layout.createSequentialGroup()
-                .addComponent(jltitulo4)
+                .addComponent(lblTitulo4)
                 .addGap(18, 18, 18)
-                .addComponent(jlPergunta5)
+                .addComponent(lblPergunta4)
                 .addGap(18, 18, 18)
                 .addGroup(painel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbRuim3)
@@ -348,13 +352,13 @@ public class Questionario extends javax.swing.JFrame {
 
         painelPrincipal.add(painel4, "pergunta4");
 
-        jltitulo2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jltitulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jltitulo2.setText("Sugestão (Opcional)");
+        lblTituloSugestao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblTituloSugestao.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTituloSugestao.setText("Sugestão (Opcional)");
 
-        jlPergunta2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jlPergunta2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlPergunta2.setText("<html>É muito importante pra nós você deixar alguma sugestão para que possamos melhorar ainda mais o nosso serviço. </html>");
+        lblSugestao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblSugestao.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSugestao.setText("<html>É muito importante pra nós você deixar alguma sugestão para que possamos melhorar ainda mais o nosso serviço. </html>");
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -380,11 +384,11 @@ public class Questionario extends javax.swing.JFrame {
             painel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painel5Layout.createSequentialGroup()
                 .addGroup(painel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jltitulo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblTituloSugestao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(painel5Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(painel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jlPergunta2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(lblSugestao, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addGroup(painel5Layout.createSequentialGroup()
                                 .addGroup(painel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -398,9 +402,9 @@ public class Questionario extends javax.swing.JFrame {
         painel5Layout.setVerticalGroup(
             painel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painel5Layout.createSequentialGroup()
-                .addComponent(jltitulo2)
+                .addComponent(lblTituloSugestao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jlPergunta2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblSugestao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -464,10 +468,14 @@ public class Questionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAvancarActionPerformed
-
-        if (getInformacaoInserida()!=null)
-            avancar();
-        else 
+        String entrada = getInformacaoInserida();
+        
+        if (entrada!=null){
+            quest.setResposta(entrada, cardAtual-1);
+            
+            System.out.println(">> Entrada [PAINEL Nº "+cardAtual+"]: "+entrada);
+            avancar();            
+        } else 
             JOptionPane.showMessageDialog(this, "Você precisa selecionar uma das opções.", "Erro", JOptionPane.ERROR_MESSAGE);
         
     }//GEN-LAST:event_botaoAvancarActionPerformed
@@ -479,7 +487,7 @@ public class Questionario extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoVoltarActionPerformed
 
     String getInformacaoInserida(){
-        String input = "*";
+        String input;
         
         switch(cardAtual){
             case 1:
@@ -499,10 +507,6 @@ public class Questionario extends javax.swing.JFrame {
                 break;
         }
         
-        /*if(input == null)
-            input = "*";*/
-        
-        System.out.println(">> Entrada: "+input);
         return input;  
     }
     
@@ -539,7 +543,8 @@ public class Questionario extends javax.swing.JFrame {
         }     
     }
     
-    public void setFiltroCampoSugestao(){
+    public void filtroCampoSugestao(){
+        //
         AbstractDocument filtro = (AbstractDocument) txtAreaSugestao.getDocument();
         filtro.setDocumentFilter(new Uteis.FiltroCaracteres(141, this));
         
@@ -562,7 +567,7 @@ public class Questionario extends javax.swing.JFrame {
             public void checar(){
                 int cont = 140 - txtAreaSugestao.getText().length();
                 
-                if(cont < 20){
+                if(cont < 25){
                     lblCaracteresContador.setForeground(Color.RED);
                 } else {
                     lblCaracteresContador.setForeground(Color.BLACK);
@@ -571,6 +576,12 @@ public class Questionario extends javax.swing.JFrame {
                 lblCaracteresContador.setText(String.valueOf(cont));
             }
         });
+    }
+    
+    public void executar(){
+        // Habilita o filtro e a visibilidade no início da execução
+        this.filtroCampoSugestao();
+        this.setVisible(true);
     }
     
     /**
@@ -605,8 +616,7 @@ public class Questionario extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 Questionario q = new Questionario();
-                q.setVisible(true);
-                q.setFiltroCampoSugestao();
+                q.executar();
             }
         });
     }
@@ -619,18 +629,18 @@ public class Questionario extends javax.swing.JFrame {
     private javax.swing.ButtonGroup grupoP3;
     private javax.swing.ButtonGroup grupoP4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel jlPergunta;
-    private javax.swing.JLabel jlPergunta1;
-    private javax.swing.JLabel jlPergunta2;
-    private javax.swing.JLabel jlPergunta3;
-    private javax.swing.JLabel jlPergunta5;
     private javax.swing.JLabel jltitulo;
-    private javax.swing.JLabel jltitulo1;
-    private javax.swing.JLabel jltitulo2;
-    private javax.swing.JLabel jltitulo3;
-    private javax.swing.JLabel jltitulo4;
     private javax.swing.JLabel lblCaracteres;
     private javax.swing.JLabel lblCaracteresContador;
+    private javax.swing.JLabel lblPergunta1;
+    private javax.swing.JLabel lblPergunta2;
+    private javax.swing.JLabel lblPergunta3;
+    private javax.swing.JLabel lblPergunta4;
+    private javax.swing.JLabel lblSugestao;
+    private javax.swing.JLabel lblTitulo2;
+    private javax.swing.JLabel lblTitulo3;
+    private javax.swing.JLabel lblTitulo4;
+    private javax.swing.JLabel lblTituloSugestao;
     private javax.swing.JPanel painel1;
     private javax.swing.JPanel painel2;
     private javax.swing.JPanel painel3;

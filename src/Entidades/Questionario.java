@@ -11,12 +11,14 @@ package Entidades;
  */
 public class Questionario {
     private String id;
-    private String resposta;
+    private String[] resposta;
 
-    public Questionario(String id, String resposta) {
+    public Questionario(String id, String[] resposta) {
         this.id = id;
         this.resposta = resposta;
     }
+    
+    public Questionario(){}
 
     public String getId() {
         return id;
@@ -26,12 +28,16 @@ public class Questionario {
         this.id = id;
     }
 
-    public String getResposta() {
+    public String[] getResposta() {
         return resposta;
     }
 
-    public void setResposta(String resposta) {
+    public void setResposta(String[] resposta) {
         this.resposta = resposta;
+    }
+    
+    public void setResposta(String resposta, int posicao){
+        this.resposta[posicao] = resposta;
     }
     
     

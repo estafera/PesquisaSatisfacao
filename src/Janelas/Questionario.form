@@ -85,7 +85,7 @@
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jltitulo" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jlPergunta" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblPergunta1" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="rbPessimo" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -105,7 +105,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jltitulo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jlPergunta" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblPergunta1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="rbRuim" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -128,7 +128,7 @@
                 <Property name="text" type="java.lang.String" value="Question&#xe1;rio (1/4)"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jlPergunta">
+            <Component class="javax.swing.JLabel" name="lblPergunta1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
@@ -229,8 +229,8 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jltitulo1" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jlPergunta1" alignment="0" pref="491" max="32767" attributes="0"/>
+                  <Component id="lblTitulo2" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblPergunta2" alignment="0" pref="491" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="rbPessimo1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -246,9 +246,9 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jltitulo1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTitulo2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jlPergunta1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblPergunta2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="rbRuim1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -262,7 +262,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jltitulo1">
+            <Component class="javax.swing.JLabel" name="lblTitulo2">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="0"/>
@@ -271,7 +271,7 @@
                 <Property name="text" type="java.lang.String" value="Question&#xe1;rio (2/4)"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jlPergunta1">
+            <Component class="javax.swing.JLabel" name="lblPergunta2">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
@@ -372,8 +372,8 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jltitulo3" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jlPergunta3" alignment="0" pref="491" max="32767" attributes="0"/>
+                  <Component id="lblTitulo3" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblPergunta3" alignment="0" pref="491" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="rbPessimo2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -389,9 +389,9 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jltitulo3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTitulo3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jlPergunta3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblPergunta3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="rbRuim2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -405,7 +405,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jltitulo3">
+            <Component class="javax.swing.JLabel" name="lblTitulo3">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="0"/>
@@ -414,7 +414,7 @@
                 <Property name="text" type="java.lang.String" value="Question&#xe1;rio (3/4)"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jlPergunta3">
+            <Component class="javax.swing.JLabel" name="lblPergunta3">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
@@ -515,7 +515,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jlPergunta5" alignment="0" pref="491" max="32767" attributes="0"/>
+                  <Component id="lblPergunta4" alignment="0" pref="491" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="rbPessimo3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -526,15 +526,15 @@
                       <Component id="rbBom3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="jltitulo4" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblTitulo4" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jltitulo4" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTitulo4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="jlPergunta5" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblPergunta4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="rbRuim3" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -548,7 +548,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jltitulo4">
+            <Component class="javax.swing.JLabel" name="lblTitulo4">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="0"/>
@@ -557,7 +557,7 @@
                 <Property name="text" type="java.lang.String" value="Question&#xe1;rio (4/4)"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jlPergunta5">
+            <Component class="javax.swing.JLabel" name="lblPergunta4">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
@@ -660,11 +660,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jltitulo2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblTituloSugestao" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jlPergunta2" pref="0" max="32767" attributes="0"/>
+                                  <Component id="lblSugestao" pref="0" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jScrollPane1" min="-2" pref="471" max="-2" attributes="0"/>
@@ -686,9 +686,9 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jltitulo2" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTituloSugestao" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jlPergunta2" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblSugestao" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="68" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -702,7 +702,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jltitulo2">
+            <Component class="javax.swing.JLabel" name="lblTituloSugestao">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="0"/>
@@ -711,7 +711,7 @@
                 <Property name="text" type="java.lang.String" value="Sugest&#xe3;o (Opcional)"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jlPergunta2">
+            <Component class="javax.swing.JLabel" name="lblSugestao">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>

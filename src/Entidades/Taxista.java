@@ -21,6 +21,18 @@ public class Taxista {
         this.cpf = cpf;
         this.senha = senha;
     }
+    
+    public Taxista(String cpf, String senha){
+        this.cpf = cpf;
+        this.senha = senha;
+    }
+    
+    public Taxista(Taxista t){
+        this.id = t.getId();
+        this.nome = t.nome;
+        this.cpf = t.cpf;
+        this.senha = t.senha;
+    }
 
     public String getId() {
         return id;

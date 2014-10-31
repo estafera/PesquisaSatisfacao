@@ -33,9 +33,9 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="btSair" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="Titulo" alignment="0" max="32767" attributes="0"/>
-                  <Component id="Titulo1" alignment="1" pref="416" max="32767" attributes="0"/>
-                  <Component id="Titulo2" alignment="1" max="32767" attributes="0"/>
+                  <Component id="lblNomeTaxista" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblTexto1" alignment="1" pref="416" max="32767" attributes="0"/>
+                  <Component id="lblTexto2" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
@@ -45,11 +45,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="Titulo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="Titulo1" min="-2" max="-2" attributes="0"/>
+              <Component id="lblNomeTaxista" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="Titulo2" min="-2" max="-2" attributes="0"/>
+              <Component id="lblTexto1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblTexto2" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="btNovaPesquisa" min="-2" max="-2" attributes="0"/>
@@ -61,10 +61,10 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="Titulo">
+    <Component class="javax.swing.JLabel" name="lblNomeTaxista">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="0"/>
+          <Font name="Tahoma" size="14" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Ol&#xe1;, (nome do taxista)!"/>
@@ -105,7 +105,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSairActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="Titulo1">
+    <Component class="javax.swing.JLabel" name="lblTexto1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="0"/>
@@ -114,7 +114,7 @@
         <Property name="text" type="java.lang.String" value="Bem vindo ao sistema de pesquisa de satisfa&#xe7;&#xe3;o Raikon."/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="Titulo2">
+    <Component class="javax.swing.JLabel" name="lblTexto2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="0"/>

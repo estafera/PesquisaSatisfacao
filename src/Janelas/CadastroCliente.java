@@ -155,7 +155,7 @@ public class CadastroCliente extends javax.swing.JFrame {
     public void novoQuestionario(){
         quest.dispose();
         quest = new Questionario();
-        quest.setVisible(true);
+        quest.executar();
     }
     
     public void imprimirCliente(Cliente c){

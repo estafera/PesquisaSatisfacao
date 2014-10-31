@@ -5,17 +5,21 @@
  */
 package Database;
 
+import Entidades.Cliente;
+import Entidades.Taxista;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
  * @author Ramon Honorio
  */
 public class ManipulacaoSQL {
-    static ConexaoSQL sql = new ConexaoSQL();
+    private static ConexaoSQL sql = new ConexaoSQL();
+    private ResultSet result;
     
-    static void imprimirPassageiros(){
-        ResultSet result = sql.consulta(""
+    public void imprimirPassageiros(){
+        result = sql.consulta(""
                 + "SELECT * FROM T_PASSAGEIRO "
                 + "ORDER BY NOME_COMPLETO ASC");
         
@@ -35,7 +39,7 @@ public class ManipulacaoSQL {
         
     }
     
-    static void inserirPassageiro(String nome, String cpf){
+    public void inserirPassageiro(Cliente cliente){
         sql.executar(
             "INSERT INTO [dbo].[T_PASSAGEIRO]\n" +
             "           ([ID_PASSAGEIRO]\n" +
@@ -43,11 +47,42 @@ public class ManipulacaoSQL {
             "           ,[CPF])\n" +
             "     VALUES\n" +
             "           (NEWID()\n" +
-            "           ,'"+nome+"'\n" +
-            "           ,'"+cpf+"')"
+            "           ,'"+cliente.getNome()+"'\n" +
+            "           ,'"+cliente.getCPF()+"')"
         );
     }
     
+    public boolean autenticarTaxista(Taxista login){        
+        try {
+            Taxista autentic = new Taxista(
+                    result.getString("ID_TAXISTA"),
+                    result.getString("NOME_COMPLETO"),
+                    result.getString("CPF"),
+                    result.getString("SENHA"));
+
+            if(login.getSenha().equals(autentic.getSenha())){
+                login.setNome(autentic.getNome());
+                login.setId(autentic.getId());
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
     
+    public boolean existeTaxista(Taxista login){
+        result = sql.consulta(""
+                + "SELECT * FROM T_TAXISTA "
+                + "WHERE CPF = '"+login.getCpf()+"'");
+        
+        try { 
+            result.next();
+            return result.getRow()!=0;
+        } catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
     
 }

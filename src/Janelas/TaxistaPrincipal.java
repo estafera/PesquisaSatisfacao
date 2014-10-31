@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class TaxistaPrincipal extends javax.swing.JFrame {
     CadastroCliente cad;
+    Entidades.Taxista taxista;
     
     /**
      * Creates new form Principal
@@ -33,18 +34,18 @@ public class TaxistaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Titulo = new javax.swing.JLabel();
+        lblNomeTaxista = new javax.swing.JLabel();
         btNovaPesquisa = new javax.swing.JButton();
         btSair = new javax.swing.JButton();
-        Titulo1 = new javax.swing.JLabel();
-        Titulo2 = new javax.swing.JLabel();
+        lblTexto1 = new javax.swing.JLabel();
+        lblTexto2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        Titulo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Titulo.setText("Olá, (nome do taxista)!");
+        lblNomeTaxista.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblNomeTaxista.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNomeTaxista.setText("Olá, (nome do taxista)!");
 
         btNovaPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botoes/nova pesquisa naos.png"))); // NOI18N
         btNovaPesquisa.setText("Nova pesquisa");
@@ -71,13 +72,13 @@ public class TaxistaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        Titulo1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Titulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Titulo1.setText("Bem vindo ao sistema de pesquisa de satisfação Raikon.");
+        lblTexto1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblTexto1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTexto1.setText("Bem vindo ao sistema de pesquisa de satisfação Raikon.");
 
-        Titulo2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Titulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Titulo2.setText("O que deseja fazer?");
+        lblTexto2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblTexto2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTexto2.setText("O que deseja fazer?");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,20 +92,20 @@ public class TaxistaPrincipal extends javax.swing.JFrame {
                         .addComponent(btNovaPesquisa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btSair))
-                    .addComponent(Titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Titulo1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
-                    .addComponent(Titulo2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblNomeTaxista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblTexto1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
+                    .addComponent(lblTexto2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Titulo)
-                .addGap(18, 18, 18)
-                .addComponent(Titulo1)
+                .addComponent(lblNomeTaxista)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Titulo2)
+                .addComponent(lblTexto1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTexto2)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btNovaPesquisa)
@@ -122,9 +123,7 @@ public class TaxistaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btNovaPesquisaActionPerformed
 
     private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
-        
         janelaFechamento();
-        
     }//GEN-LAST:event_btSairActionPerformed
     
     public void novoCadastro(){
@@ -150,8 +149,15 @@ public class TaxistaPrincipal extends javax.swing.JFrame {
                 System.exit(0);
     }
     
-    
+    public void arrumarTitulo(){
+        System.out.println(taxista.getId());
+        lblNomeTaxista.setText("Olá, "+taxista.getNome()+"!");
+    }
 
+    public void executar(){
+        this.setVisible(true);
+        this.fechando();
+    }
     
     /**
      * @param args the command line arguments
@@ -185,17 +191,16 @@ public class TaxistaPrincipal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 TaxistaPrincipal tp = new TaxistaPrincipal();
-                tp.setVisible(true);
-                tp.fechando();
+                tp.executar();
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Titulo;
-    private javax.swing.JLabel Titulo1;
-    private javax.swing.JLabel Titulo2;
     private javax.swing.JButton btNovaPesquisa;
     private javax.swing.JButton btSair;
+    private javax.swing.JLabel lblNomeTaxista;
+    private javax.swing.JLabel lblTexto1;
+    private javax.swing.JLabel lblTexto2;
     // End of variables declaration//GEN-END:variables
 }
