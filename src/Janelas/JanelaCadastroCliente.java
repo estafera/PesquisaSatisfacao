@@ -6,22 +6,26 @@
 
 package Janelas;
 
-import Entidades.Cliente;
+import Database.ManipulacaoSQL;
+import Entidades.*;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author geoinformacao
  */
-public class CadastroCliente extends javax.swing.JFrame {
-    Questionario quest;
+public class JanelaCadastroCliente extends javax.swing.JFrame {
+    JanelaQuestionario quest;
+    Cliente novoCliente;
+    Taxista taxista;
     
     /**
      * Creates new form CadastroCliente
      */
-    public CadastroCliente() {
+    public JanelaCadastroCliente() {
         initComponents();
-        quest = new Questionario();
+        quest = new JanelaQuestionario();
     }
 
     /**
@@ -48,7 +52,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         labelTitulo.setText("Informações do cliente");
 
         labelNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelNome.setText("Nome:");
+        labelNome.setText("Nome completo:");
 
         txtNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtNome.setToolTipText("Insira aqui o nome completo");
@@ -63,6 +67,11 @@ public class CadastroCliente extends javax.swing.JFrame {
         }
         txtCPF.setToolTipText("Insira aqui o CPF");
         txtCPF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtCPF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCPFKeyPressed(evt);
+            }
+        });
 
         btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botoes/cancelar naos.png"))); // NOI18N
         btCancelar.setText("Cancelar");
@@ -109,12 +118,10 @@ public class CadastroCliente extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(labelCPF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(txtNome))))
+                            .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -147,22 +154,59 @@ public class CadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
-        novoQuestionario();
-        quest.cliente = new Cliente("0", txtNome.getText(), txtCPF.getText());
-        imprimirCliente(quest.cliente);
+        novoCliente = new Cliente("0", txtNome.getText(), txtCPF.getText());
+        if(cadastrar()){
+            novoQuestionario();
+            imprimirCliente(quest.cliente);
+        }
     }//GEN-LAST:event_btCadastrarActionPerformed
 
-    public void novoQuestionario(){
+    private void txtCPFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCPFKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+            cadastrar();
+    }//GEN-LAST:event_txtCPFKeyPressed
+
+    void novoQuestionario(){
         quest.dispose();
-        quest = new Questionario();
+        quest = new JanelaQuestionario();
         quest.executar();
+        quest.cliente = new Cliente(novoCliente);
+        quest.taxista = new Taxista(taxista);
     }
     
-    public void imprimirCliente(Cliente c){
+    void imprimirCliente(Cliente c){
         System.out.println("Nome do cliente: "+c.getNome());
         System.out.println("CPF: "+c.getCPF());
     }
     
+    boolean cadastrar(){
+        if (txtNome.getText().length() < 6 || !txtNome.getText().contains(" ") || txtCPF.getText().contains(" "))
+            msgPreencherCampos();
+        else {
+            ManipulacaoSQL msql = new ManipulacaoSQL();
+            if(msql.existePassageiro(novoCliente))
+                return true;
+            else
+                msgClienteJaCadastrado();
+        }
+        return false;
+    }
+    
+    void msgClienteJaCadastrado(){
+        String mensagem = "O CPF informado já foi cadastrado.\n"
+                + "Lembre-se que só pode ser feita uma pesquisa por cliente.";
+        JOptionPane.showMessageDialog(this, mensagem, "Erro", JOptionPane.ERROR_MESSAGE);
+        txtCPF.setValue(null);
+    }
+    
+    void msgPreencherCampos(){
+        String mensagem = "Preencha os campos corretamente.\n"
+                    + "- O nome precisa ter pelo menos 6 caracteres e o sobrenome.\n"
+                    + "- Todos os espaços para CPF devem ser preenchidos.";
+        JOptionPane.showMessageDialog(this, mensagem, "Erro", JOptionPane.ERROR_MESSAGE);
+        txtCPF.setValue(null);
+    }
     
     /**
      * @param args the command line arguments
@@ -181,20 +225,21 @@ public class CadastroCliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaCadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaCadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaCadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaCadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroCliente().setVisible(true);
+                new JanelaCadastroCliente().setVisible(true);
             }
         });
     }

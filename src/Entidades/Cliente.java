@@ -15,6 +15,11 @@ public class Cliente {
         this.cpf = cpf;
     }
     
+    public Cliente(Cliente cliente) {
+        this.nome = cliente.nome;
+        this.cpf = cliente.cpf;
+    }
+    
     public String getNome(){
         return nome;
     }

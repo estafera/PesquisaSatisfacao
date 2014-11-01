@@ -5,7 +5,9 @@
  */
 package Entidades;
 
+import Database.ManipulacaoSQL;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -13,21 +15,8 @@ import java.time.LocalDate;
  */
 public class Pesquisa {
     private String id;
-    private LocalDate data;
-    
-    /*  JAVA 8
-    
-        data = LocalDate.now();
-        System.out.println(data);
-        
-        hora = LocalTime.now();
-        System.out.println(hora);
-    */
-
-    public Pesquisa(String id, LocalDate data) {
-        this.id = id;
-        this.data = data;
-    }
+    private String data = "dd/MM/yyyy";
+    private String sugestao;
 
     public String getId() {
         return id;
@@ -37,14 +26,27 @@ public class Pesquisa {
         this.id = id;
     }
 
-    public LocalDate getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(LocalDate data) {
+    public void setData(String data) {
         this.data = data;
     }
     
-    
+    void setDataAtual(){
+        LocalDate ld = LocalDate.now();
+        
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        data = ld.format(formatter);
+    }
 
+    public String getSugestao() {
+        return sugestao;
+    }
+
+    public void setSugestao(String sugestao) {
+        this.sugestao = sugestao;
+    }
+    
 }

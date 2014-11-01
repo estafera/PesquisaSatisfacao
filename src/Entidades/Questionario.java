@@ -17,8 +17,6 @@ public class Questionario {
         this.id = id;
         this.resposta = resposta;
     }
-    
-    public Questionario(){}
 
     public String getId() {
         return id;
