@@ -19,6 +19,7 @@ public class JanelaCadastroCliente extends javax.swing.JFrame {
     JanelaQuestionario quest;
     Cliente novoCliente;
     Taxista taxista;
+    ManipulacaoSQL msql;
     
     /**
      * Creates new form CadastroCliente
@@ -156,6 +157,7 @@ public class JanelaCadastroCliente extends javax.swing.JFrame {
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         novoCliente = new Cliente("0", txtNome.getText(), txtCPF.getText());
         if(cadastrar()){
+            dispose();
             novoQuestionario();
             imprimirCliente(quest.cliente);
         }
@@ -184,11 +186,12 @@ public class JanelaCadastroCliente extends javax.swing.JFrame {
         if (txtNome.getText().length() < 6 || !txtNome.getText().contains(" ") || txtCPF.getText().contains(" "))
             msgPreencherCampos();
         else {
-            ManipulacaoSQL msql = new ManipulacaoSQL();
+            msql = new ManipulacaoSQL();
             if(msql.existePassageiro(novoCliente))
-                return true;
-            else
                 msgClienteJaCadastrado();
+            else
+                return true;
+                
         }
         return false;
     }

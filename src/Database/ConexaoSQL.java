@@ -1,6 +1,8 @@
 package Database;
 
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ConexaoSQL {
     //Status da conexao
@@ -49,10 +51,11 @@ public class ConexaoSQL {
             
             System.out.println("A conexão com o banco de dados foi efetuada com sucesso.");
         } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
+            System.err.println("Classe não encontrada. [DATABASE]");
+            Logger.getLogger(ConexaoSQL.class.getName()).log(Level.SEVERE, "ClassNotFoundException", ex);
         } catch (SQLException ex) {
-            ex.printStackTrace();
-            System.out.println("Houve um erro durante a conexão com o banco de dados.");
+            System.err.println("Houve um erro durante a conexão com o banco de dados.");
+            Logger.getLogger(ConexaoSQL.class.getName()).log(Level.SEVERE, "SQLException", ex);
         }
     }
     
@@ -60,8 +63,8 @@ public class ConexaoSQL {
         try {
             ResultSet rs = query.executeQuery(consulta);
             return rs;
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            Logger.getLogger(ConexaoSQL.class.getName()).log(Level.SEVERE, "SQLException", ex);
         }
         
         return null;
@@ -70,8 +73,8 @@ public class ConexaoSQL {
     public void executar(String comando){
         try {
            query.execute(comando);
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            Logger.getLogger(ConexaoSQL.class.getName()).log(Level.SEVERE, "SQLException", ex);
         }
     }
     

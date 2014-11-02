@@ -5,7 +5,6 @@
  */
 package Entidades;
 
-import Database.ManipulacaoSQL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -34,10 +33,10 @@ public class Pesquisa {
         this.data = data;
     }
     
-    void setDataAtual(){
+    public void setDataAtual(){
         LocalDate ld = LocalDate.now();
         
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         data = ld.format(formatter);
     }
 

@@ -5,6 +5,7 @@
  */
 package Janelas;
 
+import Database.ManipulacaoSQL;
 import Entidades.Taxista;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -17,7 +18,6 @@ import javax.swing.JOptionPane;
 public class JanelaTaxistaPrincipal extends javax.swing.JFrame {
     JanelaCadastroCliente cad;
     Taxista taxista;
-    
     
     /**
      * Creates new form Principal
@@ -153,7 +153,6 @@ public class JanelaTaxistaPrincipal extends javax.swing.JFrame {
     }
     
     public void arrumarTitulo(){
-        System.out.println(taxista.getId());
         lblNomeTaxista.setText("Olá, "+taxista.getNome()+"!");
     }
 

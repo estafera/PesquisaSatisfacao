@@ -147,23 +147,7 @@ public class JanelaTaxistaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btAutenticarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAutenticarActionPerformed
-        login = new Taxista(campoCPF.getText(), new String(campoSenha.getPassword()));        
-        
-        if(msql.existeTaxista(login)){
-            if(msql.autenticarTaxista(login)){
-                //JOptionPane.showMessageDialog(this, "Autenticado!");
-                imprimirTaxista();
-                JanelaTaxistaPrincipal tp = new JanelaTaxistaPrincipal();
-                tp.taxista = new Taxista(login);
-                tp.arrumarTitulo();
-                tp.setVisible(true);
-                dispose();
-            } else {
-                JOptionPane.showMessageDialog(this, "Senha incorreta.", "Erro", JOptionPane.ERROR_MESSAGE);
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "Taxista não encontrado.","Erro", JOptionPane.ERROR_MESSAGE);
-        }
+        efetuarLogin();
     }//GEN-LAST:event_btAutenticarActionPerformed
 
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
@@ -181,8 +165,28 @@ public class JanelaTaxistaLogin extends javax.swing.JFrame {
         System.out.println("-----------------------------------------");
     }
     
-    public void executar(){
+    void executar(){
         this.setVisible(true);
+    }
+    
+    void efetuarLogin(){
+        login = new Taxista(campoCPF.getText(), new String(campoSenha.getPassword()));        
+        
+        if(msql.existeTaxista(login)){
+            if(msql.autenticarTaxista(login)){
+                //JOptionPane.showMessageDialog(this, "Autenticado!");
+                imprimirTaxista();
+                JanelaTaxistaPrincipal tp = new JanelaTaxistaPrincipal();
+                tp.taxista = new Taxista(login);
+                tp.arrumarTitulo();
+                tp.setVisible(true);
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Senha incorreta.", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Taxista não encontrado.","Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }
     
     /**

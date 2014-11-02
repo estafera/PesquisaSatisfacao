@@ -134,7 +134,7 @@
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Num &#xe2;mbito geral, como voc&#xea; classificaria o nosso servi&#xe7;o?"/>
+                <Property name="text" type="java.lang.String" value="Pergunta 1"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbPessimo">
@@ -277,7 +277,7 @@
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Como voc&#xea; classificaria o prazo de atendimento?"/>
+                <Property name="text" type="java.lang.String" value="Pergunta 2"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbPessimo1">
@@ -420,7 +420,7 @@
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Classifique o conforto da viagem:"/>
+                <Property name="text" type="java.lang.String" value="Pergunta 3"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbPessimo2">
@@ -563,7 +563,7 @@
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Classifique o atendimento do taxista:"/>
+                <Property name="text" type="java.lang.String" value="Pergunta 4"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbPessimo3">

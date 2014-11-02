@@ -27,17 +27,25 @@ public class JanelaQuestionario extends javax.swing.JFrame {
     private final uteis.GrupoDeBotoes utGrupo;
     
     // Informacoes que foram passadas das janelas anteriores
+    public Taxista taxista;
     public Cliente cliente;
     public Questionario quest;
-    public Taxista taxista;
+    public Pergunta[] perguntas;
+    public Pesquisa pesquisa;
+    
+    // Manipular banco de dados
+    public ManipulacaoSQL msql;
     
     public JanelaQuestionario() {
         initComponents();
         
         cardAtual = 1;
-        qtdPaineis = painelPrincipal.getComponentCount();
         utGrupo = new GrupoDeBotoes();
+        qtdPaineis = painelPrincipal.getComponentCount();
+        perguntas = new Pergunta[qtdPaineis];
+        quest = new Questionario("0", new String[qtdPaineis]);
         
+        msql = new ManipulacaoSQL();
     }
     
     @SuppressWarnings("unchecked")
@@ -99,7 +107,7 @@ public class JanelaQuestionario extends javax.swing.JFrame {
 
         lblPergunta1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblPergunta1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPergunta1.setText("Num âmbito geral, como você classificaria o nosso serviço?");
+        lblPergunta1.setText("Pergunta 1");
 
         grupoP1.add(rbPessimo);
         rbPessimo.setText("Péssimo");
@@ -167,7 +175,7 @@ public class JanelaQuestionario extends javax.swing.JFrame {
 
         lblPergunta2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblPergunta2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPergunta2.setText("Como você classificaria o prazo de atendimento?");
+        lblPergunta2.setText("Pergunta 2");
 
         grupoP2.add(rbPessimo1);
         rbPessimo1.setText("Péssimo");
@@ -232,7 +240,7 @@ public class JanelaQuestionario extends javax.swing.JFrame {
 
         lblPergunta3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblPergunta3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPergunta3.setText("Classifique o conforto da viagem:");
+        lblPergunta3.setText("Pergunta 3");
 
         grupoP3.add(rbPessimo2);
         rbPessimo2.setText("Péssimo");
@@ -297,7 +305,7 @@ public class JanelaQuestionario extends javax.swing.JFrame {
 
         lblPergunta4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblPergunta4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPergunta4.setText("Classifique o atendimento do taxista:");
+        lblPergunta4.setText("Pergunta 4");
 
         grupoP4.add(rbPessimo3);
         rbPessimo3.setText("Péssimo");
@@ -525,7 +533,8 @@ public class JanelaQuestionario extends javax.swing.JFrame {
             if(cardAtual>qtdPaineis){
                 JOptionPane.showMessageDialog(this, "Muito obrigado! :)", 
                         "Pesquisa finalizada", JOptionPane.INFORMATION_MESSAGE);
-                System.exit(0);
+                msql.cadastrarQuestionario(taxista, cliente, perguntas, quest);
+                dispose();
             }
             // Painel principal altera-se para o próximo card (painel)
             CardLayout card = (CardLayout) painelPrincipal.getLayout();
@@ -585,12 +594,17 @@ public class JanelaQuestionario extends javax.swing.JFrame {
     void executar(){
         // Habilita o filtro e a visibilidade no início da execução
         this.filtroCampoSugestao();
+        this.criarPerguntas();
         this.setVisible(true);
     }
     
-    void gravarNoBancoDeDados(){
-        ManipulacaoSQL msql = new ManipulacaoSQL();
+    void criarPerguntas(){
+        perguntas = msql.carregarPerguntas();
         
+        lblPergunta1.setText(perguntas[0].getDescricao());
+        lblPergunta2.setText(perguntas[1].getDescricao());
+        lblPergunta3.setText(perguntas[2].getDescricao());
+        lblPergunta4.setText(perguntas[3].getDescricao());
     }
     
     /**
