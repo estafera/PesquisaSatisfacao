@@ -128,72 +128,84 @@ public class ManipulacaoSQL {
     
     // --------- PESQUISA / QUESTIONARIO --------
     
-    public void cadastrarQuestionario(Taxista taxista, Cliente passageiro, Pergunta[] perguntas, Questionario questionario){
-        // Cadastrando o passageiro no banco
-        inserirPassageiro(passageiro);
+    public void cadastrarQuestionario(Taxista taxista, Cliente passageiro, Pergunta[] perguntas, Questionario questionario) {
         
-        // Recebendo as respostas
-        String[] respostas = questionario.getResposta();
-        
-        // Preparando uma instancia para efetuar registro em T_PESQUISA
-        Pesquisa pesquisa = new Pesquisa();
-        pesquisa.setDataAtual();
-        pesquisa.setSugestao(respostas[respostas.length-1]);
-        
-        //<editor-fold defaultstate="collapsed" desc="Efetuando registro em T_PESQUISA">
-        sql.executar(
-                "INSERT INTO [dbo].[T_PESQUISA] \n" +
-                        "                ([ID_PESQUISA]\n" +
-                        "                ,[ID_PASSAGEIRO]\n" +
-                        "                ,[ID_TAXISTA]\n" +
-                        "                ,[DATA_REALIZACAO]\n" +
-                        "                ,[SUGESTAO])\n" +
-                        "            VALUES\n" +
-                        "                (NEWID()\n" +
-                        "                ,'"+passageiro.getId()+"'\n" +
-                        "                ,'"+taxista.getId()+"'\n" +
-                        "                ,'"+pesquisa.getData()+"'\n" +
-                        "                ,'"+pesquisa.getSugestao()+"'"
-                        + ")");
-        System.out.println(">> Registro em T_PESQUISA realizado com sucesso.");
-//</editor-fold>
-        
-        //<editor-fold defaultstate="collapsed" desc="Atribuindo o ID_PESQUISA p/ a instancia 'pesquisa'">
-        result = sql.consulta(""
-                + "SELECT * FROM T_PESQUISA "
-                + "WHERE ID_PASSAGEIRO = '"+passageiro.getId()+"'");
         try {
-            if(result.next()){
-                String novoId = result.getString("ID_PESQUISA");
-                pesquisa.setId(novoId);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(ManipulacaoSQL.class.getName()).log(Level.SEVERE, null, ex);
-        }
-//</editor-fold>
+            // Inicio da transacao
+            transacaoInicio();
         
-        //<editor-fold defaultstate="collapsed" desc="Efetuando registro em T_QUESTIONARIO">
-        for (int i = 0; i < perguntas.length; i++) {
-            System.out.println("ID PESQUISA "+i+": "+pesquisa.getId());
-            System.out.println("PERGUNTA "+i+": "+perguntas[i].getId());
-            System.out.println("RESPOSTA "+i+": "+respostas[i]);
-            
+            // Cadastrando o passageiro no banco
+            inserirPassageiro(passageiro);
+
+            // Recebendo as respostas
+            String[] respostas = questionario.getResposta();
+
+            // Preparando uma instancia para efetuar registro em T_PESQUISA
+            Pesquisa pesquisa = new Pesquisa();
+            pesquisa.setDataAtual();
+            pesquisa.setSugestao(respostas[respostas.length-1]);
+
+            //<editor-fold defaultstate="collapsed" desc="Efetuando registro em T_PESQUISA">
             sql.executar(
-                    "INSERT INTO [dbo].[T_QUESTIONARIO]\n" +
-                "           ([ID_QUESTIONARIO]\n" +
-                "           ,[ID_PESQUISA]\n" +
-                "           ,[ID_PERGUNTA]\n" +
-                "           ,[RESPOSTA])\n" +
-                "     VALUES\n" +
-                "           (NEWID()\n" +
-                "           ,'"+pesquisa.getId()+"'\n" +
-                "           ,'"+perguntas[i].getId()+"'\n" +
-                "           ,'"+respostas[i]+"'"
-                + ")");
+                    "INSERT INTO [dbo].[T_PESQUISA] \n" +
+                            "                ([ID_PESQUISA]\n" +
+                            "                ,[ID_PASSAGEIRO]\n" +
+                            "                ,[ID_TAXISTA]\n" +
+                            "                ,[DATA_REALIZACAO]\n" +
+                            "                ,[SUGESTAO])\n" +
+                            "            VALUES\n" +
+                            "                (NEWID()\n" +
+                            "                ,'"+passageiro.getId()+"'\n" +
+                            "                ,'"+taxista.getId()+"'\n" +
+                            "                ,'"+pesquisa.getData()+"'\n" +
+                            "                ,'"+pesquisa.getSugestao()+"'"
+                            + ")");
+            System.out.println(">> Registro em T_PESQUISA realizado com sucesso.");
+            //</editor-fold>
+
+            //<editor-fold defaultstate="collapsed" desc="Atribuindo o ID_PESQUISA p/ a instancia 'pesquisa'">
+            result = sql.consulta(""
+                    + "SELECT * FROM T_PESQUISA "
+                    + "WHERE ID_PASSAGEIRO = '"+passageiro.getId()+"'");
+            try {
+                if(result.next()){
+                    String novoId = result.getString("ID_PESQUISA");
+                    pesquisa.setId(novoId);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(ManipulacaoSQL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            //</editor-fold>
+
+            //<editor-fold defaultstate="collapsed" desc="Efetuando registro em T_QUESTIONARIO">
+            for (int i = 0; i < perguntas.length; i++) {
+                sql.executar(
+                        "INSERT INTO [dbo].[T_QUESTIONARIO]\n" +
+                    "           ([ID_QUESTIONARIO]\n" +
+                    "           ,[ID_PESQUISA]\n" +
+                    "           ,[ID_PERGUNTA]\n" +
+                    "           ,[RESPOSTA])\n" +
+                    "     VALUES\n" +
+                    "           (NEWID()\n" +
+                    "           ,'"+pesquisa.getId()+"'\n" +
+                    "           ,'"+perguntas[i].getId()+"'\n" +
+                    "           ,'"+respostas[i]+"'"
+                    + ")");
+            }
+            System.out.println(">> Registro em T_QUESTIONARIO realizado com sucesso.");
+    //</editor-fold>
+            
+            transacaoCommit();
+            
+        } catch (SQLException ex) {
+            try {
+                transacaoRollback();
+                Logger.getLogger(ManipulacaoSQL.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex1) {
+                System.out.println(">> Falha ao efetuar o rollback.");
+                Logger.getLogger(ManipulacaoSQL.class.getName()).log(Level.SEVERE, null, ex1);
+            }
         }
-        System.out.println(">> Registro em T_QUESTIONARIO realizado com sucesso.");
-//</editor-fold>
-        
     }
     
     // --------------- PERGUNTAS ------------------
@@ -229,6 +241,23 @@ public class ManipulacaoSQL {
         }
         
         return perguntas;
+    }
+    
+    // --------------- CONEXAO SQL ------------------
+    public void transacaoInicio() throws SQLException {
+        sql.getConexao().setAutoCommit(false);
+        sql.getConexao().createStatement();
+    }
+    
+    public void transacaoCommit() throws SQLException{
+        sql.getConexao().commit();
+        System.out.println(">> Commit realizado com sucesso.");
+    }
+    
+    public void transacaoRollback() throws SQLException{
+        System.out.println(">> Falha ao cadastrar questionário. Desfazendo alterações...");
+        sql.getConexao().rollback();
+        System.out.println(">> Rollback realizado com sucesso.");
     }
         
 }

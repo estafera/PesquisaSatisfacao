@@ -533,6 +533,8 @@ public class JanelaQuestionario extends javax.swing.JFrame {
             if(cardAtual>qtdPaineis){
                 JOptionPane.showMessageDialog(this, "Muito obrigado! :)", 
                         "Pesquisa finalizada", JOptionPane.INFORMATION_MESSAGE);
+                if(quest.getResposta()[quest.getResposta().length-1].equals(""))
+                    quest.setResposta(null, quest.getResposta().length-1);
                 msql.cadastrarQuestionario(taxista, cliente, perguntas, quest);
                 dispose();
             }

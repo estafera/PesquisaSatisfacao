@@ -6,8 +6,8 @@ import java.util.logging.Logger;
 
 public class ConexaoSQL {
     //Status da conexao
-    private static String status = "Não conectado";
-    private static Connection conn;
+    private String status = "Não conectado";
+    private static Connection conexao;
     private static Statement query;
     
     //Atributos da conexao;
@@ -43,10 +43,10 @@ public class ConexaoSQL {
                           ";user=" + login + ";password="+senha;
  
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection(URL);
+            conexao = DriverManager.getConnection(URL);
  
             //Executa pedido SQL
-            query = conn.createStatement();
+            query = conexao.createStatement();
             status = "Conectado";
             
             System.out.println("A conexão com o banco de dados foi efetuada com sucesso.");
@@ -78,7 +78,7 @@ public class ConexaoSQL {
         }
     }
     
-    //<editor-fold defaultstate="collapsed" desc="getters()">
+    //<editor-fold defaultstate="collapsed" desc="Getters() da Conexao">
     public String getStatus() {
         return status;
     }
@@ -103,6 +103,15 @@ public class ConexaoSQL {
         return senha;
     }
     
+    
 //</editor-fold>
+
+    public Connection getConexao() {
+        return conexao;
+    }
+
+    public Statement getStatement() {
+        return query;
+    }
     
 }
