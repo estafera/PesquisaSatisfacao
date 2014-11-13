@@ -28,10 +28,10 @@ public class ConexaoSQL {
     }
     
     public ConexaoSQL(){
-        this.servidor = "WIN-F9KH5MLL0II\\SQLEXPRESS";
-        this.porta = 60256;
-        this.banco = "DBPesquisaSatisfacao";
-        this.login = "ramonh";
+        this.servidor = "CAPIROTO\\SQLEXPRESS";
+        this.porta = 1433;
+        this.banco = "PI2";
+        this.login = "maikon";
         this.senha = "1234";
         
         conectar();
