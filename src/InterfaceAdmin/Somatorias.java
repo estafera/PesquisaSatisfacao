@@ -20,10 +20,13 @@ public class Somatorias {
     private static ConexaoSQL sql = new ConexaoSQL();
     private static ResultSet result;
     
-    public static int pessimo, ruim, regular, bom, total;
+    public static int pessimo, ruim, regular, bom, totalRespostas, totalPesquisas;
     public static float pessimoPorcent, ruimPorcent, regularPorcent, bomPorcent;
     
     public static void main(String[] args) {
+        quantidadePesquisas();
+        System.out.println("Pesquisas realizadas: "+totalPesquisas);
+        
         carregarSomatorias();
         calcularPorcentagens();
         imprimirClassificacaoNumero();
@@ -37,6 +40,20 @@ public class Somatorias {
         somatoriaRegular();
         somatoriaBom();
         somatoriaTotal();
+    }
+    
+    static void quantidadePesquisas(){
+        result = sql.consulta(
+                "SELECT COUNT(ID_PESQUISA) as 'qtd' \n" +
+                "	FROM T_PESQUISA \n"
+        );
+        
+        try {
+            result.next();
+            totalPesquisas = result.getInt("qtd");
+        } catch (SQLException ex) {
+            Logger.getLogger(Somatorias.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     static void somatoriaPessimo(){
@@ -107,17 +124,17 @@ public class Somatorias {
         
         try {
             result.next();
-            total = result.getInt("total");
+            totalRespostas = result.getInt("total");
         } catch (SQLException ex) {
             Logger.getLogger(Somatorias.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
     static void calcularPorcentagens(){
-        pessimoPorcent = pessimo * 100 / total;
-        ruimPorcent = ruim * 100 / total;
-        regularPorcent = regular * 100 / total;
-        bomPorcent = bom * 100 / total;
+        pessimoPorcent = pessimo * 100 / totalRespostas;
+        ruimPorcent = ruim * 100 / totalRespostas;
+        regularPorcent = regular * 100 / totalRespostas;
+        bomPorcent = bom * 100 / totalRespostas;
     }
     
     static void imprimirClassificacaoPorcent(){
@@ -134,7 +151,7 @@ public class Somatorias {
         System.out.println("Ruim: "+ruim);
         System.out.println("Regular: "+regular);
         System.out.println("Bom: "+bom);
-        System.out.println("Total: "+total);
+        System.out.println("Numero de respostas: "+totalRespostas);
     }
     
 }

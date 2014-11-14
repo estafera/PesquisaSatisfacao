@@ -172,9 +172,10 @@ public class JanelaTaxistaLogin extends javax.swing.JFrame {
     void efetuarLogin(){
         login = new Taxista(campoCPF.getText(), new String(campoSenha.getPassword()));        
         
-        if(msql.existeTaxista(login)){
+        if(campoCPF.getText().contains(" ")){
+            msgPreencherCampos();
+        } else if(msql.existeTaxista(login)){
             if(msql.autenticarTaxista(login)){
-                //JOptionPane.showMessageDialog(this, "Autenticado!");
                 imprimirTaxista();
                 JanelaTaxistaPrincipal tp = new JanelaTaxistaPrincipal();
                 tp.taxista = new Taxista(login);
@@ -182,11 +183,25 @@ public class JanelaTaxistaLogin extends javax.swing.JFrame {
                 tp.setVisible(true);
                 dispose();
             } else {
-                JOptionPane.showMessageDialog(this, "Senha incorreta.", "Erro", JOptionPane.ERROR_MESSAGE);
+                msgSenhaIncorreta();
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Taxista não encontrado.","Erro", JOptionPane.ERROR_MESSAGE);
+            msgTaxistaNaoEncontrado();
         }
+    }
+    
+    void msgSenhaIncorreta(){
+        JOptionPane.showMessageDialog(this, "Senha incorreta.", "Erro", JOptionPane.ERROR_MESSAGE);
+    }
+    
+    void msgPreencherCampos(){
+        String mensagem = "Por favor, preencha o campo [CPF] corretamente.";
+        JOptionPane.showMessageDialog(this, mensagem, "Erro", JOptionPane.ERROR_MESSAGE);
+        campoCPF.setValue(null);
+    }
+    
+    void msgTaxistaNaoEncontrado(){
+        JOptionPane.showMessageDialog(this, "Taxista não encontrado.","Erro", JOptionPane.ERROR_MESSAGE);
     }
     
     /**

@@ -28,13 +28,27 @@ public class ConexaoSQL {
     }
     
     public ConexaoSQL(){
+        
+        //pcMaikon();
+        pcRamon();
+        
+        conectar();
+    }
+    
+    void pcRamon(){
+        this.servidor = "WIN-F9KH5MLL0II\\SQLEXPRESS";
+        this.porta = 60256;
+        this.banco = "DBPesquisaSatisfacao";
+        this.login = "ramonh";
+        this.senha = "1234";
+    }
+    
+    void pcMaikon(){
         this.servidor = "CAPIROTO\\SQLEXPRESS";
         this.porta = 1433;
         this.banco = "PI2";
         this.login = "maikon";
         this.senha = "1234";
-        
-        conectar();
     }
     
     public void conectar() {

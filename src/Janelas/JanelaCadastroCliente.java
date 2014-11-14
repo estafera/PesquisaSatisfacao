@@ -156,11 +156,15 @@ public class JanelaCadastroCliente extends javax.swing.JFrame {
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         novoCliente = new Cliente("0", txtNome.getText(), txtCPF.getText());
+        String cpfReformatado = txtCPF.getText().replaceAll("\\.", "").replaceAll("-", "");
+        System.out.println(">>>>>>>>> CPF: "+cpfReformatado);
+        
         if(cadastrar()){
             dispose();
             novoQuestionario();
             imprimirCliente(quest.cliente);
         }
+        
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void txtCPFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCPFKeyPressed
@@ -183,7 +187,12 @@ public class JanelaCadastroCliente extends javax.swing.JFrame {
     }
     
     boolean cadastrar(){
-        if (txtNome.getText().length() < 6 || !txtNome.getText().contains(" ") || txtCPF.getText().contains(" "))
+        String cpfReformatado = txtCPF.getText().replaceAll("\\.", "").replaceAll("-", "");
+        
+        if (txtNome.getText().length() < 6 || 
+                !txtNome.getText().contains(" ") || 
+                txtCPF.getText().contains(" ") ||
+                !Uteis.ValidaCPF.isCPF(cpfReformatado))
             msgPreencherCampos();
         else {
             msql = new ManipulacaoSQL();
@@ -204,9 +213,9 @@ public class JanelaCadastroCliente extends javax.swing.JFrame {
     }
     
     void msgPreencherCampos(){
-        String mensagem = "Preencha os campos corretamente.\n"
-                    + "- O nome precisa ter pelo menos 6 caracteres e o sobrenome.\n"
-                    + "- Todos os espaços para CPF devem ser preenchidos.";
+        String mensagem = "Preencha todos os campos corretamente:\n"
+                    + "- O nome precisa ter pelo menos 6 (seis) caracteres e um sobrenome.\n"
+                    + "- O CPF tem que ser válido.";
         JOptionPane.showMessageDialog(this, mensagem, "Erro", JOptionPane.ERROR_MESSAGE);
         txtCPF.setValue(null);
     }
