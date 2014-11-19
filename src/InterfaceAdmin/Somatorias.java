@@ -23,14 +23,18 @@ public class Somatorias {
     public static int pessimo, ruim, regular, bom, totalRespostas, totalPesquisas;
     public static float pessimoPorcent, ruimPorcent, regularPorcent, bomPorcent;
     
+    public static Pergunta perguntas[];
+    
     public static void main(String[] args) {
-        quantidadePesquisas();
+        /*quantidadePesquisas();
         System.out.println("Pesquisas realizadas: "+totalPesquisas);
         
         carregarSomatorias();
         calcularPorcentagens();
         imprimirClassificacaoNumero();
-        imprimirClassificacaoPorcent();
+        imprimirClassificacaoPorcent();*/
+        carregarIdPerguntas();
+        System.out.println(perguntas[2].getDescricao());
         
     }
     
@@ -152,6 +156,36 @@ public class Somatorias {
         System.out.println("Regular: "+regular);
         System.out.println("Bom: "+bom);
         System.out.println("Numero de respostas: "+totalRespostas);
+    }
+    
+    static boolean carregarNumeroPerguntas(){
+        result = sql.consulta("SELECT COUNT(ID_PERGUNTA) as 'num'\n"
+                + "             FROM T_PERGUNTA\n");
+        
+        try {
+            result.next();
+            int n = result.getInt("num");
+            perguntas = new Pergunta[n];
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Somatorias.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    static void carregarIdPerguntas(){
+        if(carregarNumeroPerguntas()){
+            result = sql.consulta("SELECT ID_PERGUNTA, ORDEM, DESCRICAO FROM T_PERGUNTA ORDER BY ORDEM ASC\n");
+
+            try {
+                for (int i = 0; i < perguntas.length; i++) {
+                    result.next();
+                    perguntas[i] = new Pergunta(result.getString("ID_PERGUNTA"), result.getInt("ORDEM"), result.getString("DESCRICAO"));
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Somatorias.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
     
 }
