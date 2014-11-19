@@ -8,6 +8,7 @@ package Janelas;
 
 import Database.ManipulacaoSQL;
 import Entidades.*;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
@@ -26,6 +27,10 @@ public class JanelaCadastroCliente extends javax.swing.JFrame {
      */
     public JanelaCadastroCliente() {
         initComponents();
+        
+        // Inserir icone :D
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/botoes/icone.png")));
+        
         quest = new JanelaQuestionario();
     }
 

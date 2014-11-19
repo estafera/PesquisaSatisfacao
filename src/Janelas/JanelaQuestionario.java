@@ -9,6 +9,7 @@ import Database.ManipulacaoSQL;
 import Entidades.*;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -38,6 +39,9 @@ public class JanelaQuestionario extends javax.swing.JFrame {
     
     public JanelaQuestionario() {
         initComponents();
+        
+        // Inserir icone :D
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/botoes/icone.png")));
         
         cardAtual = 1;
         utGrupo = new GrupoDeBotoes();

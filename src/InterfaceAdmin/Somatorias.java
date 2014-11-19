@@ -5,7 +5,7 @@
  */
 package InterfaceAdmin;
 
-import Database.*;
+import Database.ConexaoSQL;
 import Entidades.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,30 +20,94 @@ public class Somatorias {
     private static ConexaoSQL sql = new ConexaoSQL();
     private static ResultSet result;
     
-    public static int pessimo, ruim, regular, bom, totalRespostas, totalPesquisas;
-    public static float pessimoPorcent, ruimPorcent, regularPorcent, bomPorcent;
-    
-    public static Pergunta perguntas[];
+    private static Pergunta[] pergunta;
+    private static int qtdPesquisas;
     
     public static void main(String[] args) {
-        /*quantidadePesquisas();
-        System.out.println("Pesquisas realizadas: "+totalPesquisas);
-        
-        carregarSomatorias();
-        calcularPorcentagens();
-        imprimirClassificacaoNumero();
-        imprimirClassificacaoPorcent();*/
-        carregarIdPerguntas();
-        System.out.println(perguntas[2].getDescricao());
-        
+        carregarNumeroEscolhas();
+        imprimir();
     }
     
-    public static void carregarSomatorias(){
-        somatoriaPessimo();
-        somatoriaRuim();
-        somatoriaRegular();
-        somatoriaBom();
-        somatoriaTotal();
+    private static void carregarNumeroEscolhas(){
+        carregarPerguntas();
+        quantidadePesquisas();
+        result = sql.consulta(""
+                + "SELECT T_PERGUNTA.ORDEM, T_QUESTIONARIO.ID_PERGUNTA, RESPOSTA, NUMERO_ESCOLHAS = COUNT(RESPOSTA)\n" +
+                "	FROM T_QUESTIONARIO\n" +
+                "	LEFT JOIN T_PERGUNTA\n" +
+                "	ON T_QUESTIONARIO.ID_PERGUNTA = T_PERGUNTA.ID_PERGUNTA\n" +
+                "	GROUP BY T_PERGUNTA.ORDEM, RESPOSTA, T_QUESTIONARIO.ID_PERGUNTA\n" +
+                "	ORDER BY T_PERGUNTA.ORDEM");
+        
+        try {
+            while(result.next()){
+                for (int i = 0; i < pergunta.length; i++) {
+                    if(pergunta[i].getOrdem() == result.getInt("ORDEM")){
+                        int num = result.getInt("NUMERO_ESCOLHAS");
+                        switch(result.getString("RESPOSTA")){
+                            case "Bom":
+                                pergunta[i].respostas.setEscolhasBom(num);
+                                break;
+                            case "Regular":
+                                pergunta[i].respostas.setEscolhasRegular(num);
+                                break;
+                            case "Ruim":
+                                pergunta[i].respostas.setEscolhasRuim(num);
+                                break;
+                            case "Péssimo":
+                                pergunta[i].respostas.setEscolhasPessimo(num);
+                                break;
+                        }
+                    }
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Somatorias.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private static void imprimir(){
+        System.out.println("--------------------------");
+        System.out.println("| Pesquisas realizadas: "+qtdPesquisas);
+        for (int i = 0; i < pergunta.length; i++) {
+            System.out.println("| "+pergunta[i].getOrdem()+") "+pergunta[i].getDescricao());
+            System.out.printf("| Bom: %d    Regular: %d    Ruim: %d    Péssimo: %d\n",
+                    pergunta[i].respostas.getEscolhasBom(),
+                    pergunta[i].respostas.getEscolhasRegular(),
+                    pergunta[i].respostas.getEscolhasRuim(),
+                    pergunta[i].respostas.getEscolhasPessimo());
+        }
+        System.out.println("--------------------------");
+    }
+    
+    static void carregarPerguntas(){
+        if(carregarNumeroPerguntas()){
+            result = sql.consulta("SELECT ID_PERGUNTA, ORDEM, DESCRICAO FROM T_PERGUNTA ORDER BY ORDEM ASC\n");
+
+            try {
+                for (int i = 0; i < pergunta.length; i++) {
+                    result.next();
+                    pergunta[i] = new Pergunta(result.getString("ID_PERGUNTA"), result.getInt("ORDEM"), result.getString("DESCRICAO"));
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Somatorias_Old.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    static boolean carregarNumeroPerguntas(){
+        result = sql.consulta("SELECT COUNT(ID_PERGUNTA) as 'num'\n"
+                + "             FROM T_PERGUNTA\n");
+        
+        try {
+            result.next();
+            int n = result.getInt("num");
+            pergunta = new Pergunta[n];
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Somatorias_Old.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
     
     static void quantidadePesquisas(){
@@ -54,138 +118,9 @@ public class Somatorias {
         
         try {
             result.next();
-            totalPesquisas = result.getInt("qtd");
+            qtdPesquisas = result.getInt("qtd");
         } catch (SQLException ex) {
-            Logger.getLogger(Somatorias.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Somatorias_Old.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    static void somatoriaPessimo(){
-        result = sql.consulta(
-                "SELECT COUNT(RESPOSTA) as 'qtd'\n" +
-                "	FROM T_QUESTIONARIO\n" +
-                "	WHERE RESPOSTA = 'Péssimo'"
-        );
-        
-        try {
-            result.next();
-            pessimo = result.getInt("qtd");
-        } catch (SQLException ex) {
-            Logger.getLogger(Somatorias.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    static void somatoriaRuim(){
-        result = sql.consulta(
-                "SELECT COUNT(RESPOSTA) as 'qtd'\n" +
-                "	FROM T_QUESTIONARIO\n" +
-                "	WHERE RESPOSTA = 'Ruim'"
-        );
-        
-        try {
-            result.next();
-            ruim = result.getInt("qtd");
-        } catch (SQLException ex) {
-            Logger.getLogger(Somatorias.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    static void somatoriaRegular(){
-        result = sql.consulta(
-                "SELECT COUNT(RESPOSTA) as 'qtd'\n" +
-                "	FROM T_QUESTIONARIO\n" +
-                "	WHERE RESPOSTA = 'Regular'"
-        );
-        
-        try {
-            result.next();
-            regular = result.getInt("qtd");
-        } catch (SQLException ex) {
-            Logger.getLogger(Somatorias.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    static void somatoriaBom(){
-        result = sql.consulta(
-                "SELECT COUNT(RESPOSTA) as 'qtd'\n" +
-                "	FROM T_QUESTIONARIO\n" +
-                "	WHERE RESPOSTA = 'Bom'"
-        );
-        
-        try {
-            result.next();
-            bom = result.getInt("qtd");
-        } catch (SQLException ex) {
-            Logger.getLogger(Somatorias.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    static void somatoriaTotal(){
-        result = sql.consulta(
-                "SELECT COUNT(RESPOSTA) as 'total'\n" +
-                "	FROM T_QUESTIONARIO"
-        );
-        
-        try {
-            result.next();
-            totalRespostas = result.getInt("total");
-        } catch (SQLException ex) {
-            Logger.getLogger(Somatorias.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    static void calcularPorcentagens(){
-        pessimoPorcent = pessimo * 100 / totalRespostas;
-        ruimPorcent = ruim * 100 / totalRespostas;
-        regularPorcent = regular * 100 / totalRespostas;
-        bomPorcent = bom * 100 / totalRespostas;
-    }
-    
-    static void imprimirClassificacaoPorcent(){
-        System.out.println("------------ CLASSIFICAÇÃO GERAL (%) ------------");
-        System.out.printf("Pessimo: %.1f%%\n", pessimoPorcent);
-        System.out.printf("Ruim: %.1f%%\n", ruimPorcent);
-        System.out.printf("Regular: %.1f%%\n", regularPorcent);
-        System.out.printf("Bom: %.1f%%\n", bomPorcent);
-    }
-    
-    static void imprimirClassificacaoNumero(){
-        System.out.println("--- CLASSIFICAÇÃO GERAL (NUMERO DE SELEÇÕES) ---");
-        System.out.println("Péssimo: "+pessimo);
-        System.out.println("Ruim: "+ruim);
-        System.out.println("Regular: "+regular);
-        System.out.println("Bom: "+bom);
-        System.out.println("Numero de respostas: "+totalRespostas);
-    }
-    
-    static boolean carregarNumeroPerguntas(){
-        result = sql.consulta("SELECT COUNT(ID_PERGUNTA) as 'num'\n"
-                + "             FROM T_PERGUNTA\n");
-        
-        try {
-            result.next();
-            int n = result.getInt("num");
-            perguntas = new Pergunta[n];
-            return true;
-        } catch (SQLException ex) {
-            Logger.getLogger(Somatorias.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;
-    }
-    
-    static void carregarIdPerguntas(){
-        if(carregarNumeroPerguntas()){
-            result = sql.consulta("SELECT ID_PERGUNTA, ORDEM, DESCRICAO FROM T_PERGUNTA ORDER BY ORDEM ASC\n");
-
-            try {
-                for (int i = 0; i < perguntas.length; i++) {
-                    result.next();
-                    perguntas[i] = new Pergunta(result.getString("ID_PERGUNTA"), result.getInt("ORDEM"), result.getString("DESCRICAO"));
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(Somatorias.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
-    
 }

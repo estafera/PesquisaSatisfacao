@@ -5,8 +5,8 @@
  */
 package Janelas;
 
-import Database.ManipulacaoSQL;
 import Entidades.Taxista;
+import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
@@ -24,6 +24,10 @@ public class JanelaTaxistaPrincipal extends javax.swing.JFrame {
      */
     public JanelaTaxistaPrincipal() {
         initComponents();
+        
+        // Inserir icone :D
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/botoes/icone.png")));
+        
         cad = new JanelaCadastroCliente();
     }
 
@@ -43,6 +47,7 @@ public class JanelaTaxistaPrincipal extends javax.swing.JFrame {
         lblTexto2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImages(null);
         setResizable(false);
 
         lblNomeTaxista.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -160,6 +165,7 @@ public class JanelaTaxistaPrincipal extends javax.swing.JFrame {
         this.setVisible(true);
         this.fechando();
     }
+    
     
     /**
      * @param args the command line arguments

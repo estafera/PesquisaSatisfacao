@@ -5,6 +5,8 @@
  */
 package Entidades;
 
+import ClassesAuxiliares.Respostas;
+
 /**
  *
  * @author Ramon Honorio
@@ -13,12 +15,13 @@ public class Pergunta {
     private String id;
     private int ordem;
     private String descricao;
+    public Respostas respostas = new Respostas();
 
     public Pergunta(String id, int ordem, String descricao) {
         this.id = id;
         this.ordem = ordem;
         this.descricao = descricao;
-    }
+    }    
 
     public String getId() {
         return id;

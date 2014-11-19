@@ -7,6 +7,7 @@ package Janelas;
 
 import Database.ManipulacaoSQL;
 import Entidades.Taxista;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,6 +24,10 @@ public class JanelaTaxistaLogin extends javax.swing.JFrame {
      */
     public JanelaTaxistaLogin() {
         initComponents();
+        
+        // Inserir icone :D
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/botoes/icone.png")));
+        
         msql = new ManipulacaoSQL();
     }
 
